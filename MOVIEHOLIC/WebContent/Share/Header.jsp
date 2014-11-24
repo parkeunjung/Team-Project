@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="java.util.ArrayList"%>
-    
+<%
+	String userid=null;
+	String username=null;
+	if(session.getAttribute("userId")&&session.getAttribute("userName")){
+		userid=session.getAttribute("userId");
+		username=session.getAttribute("userName");
+	}
+%>
 <%
 	String [][] navbarImages  = {{"BOXOFFICE","./boxoffice.jsp"},{"REVIEW","./review.jsp"}};
 	String currentMenu = request.getParameter("current");
