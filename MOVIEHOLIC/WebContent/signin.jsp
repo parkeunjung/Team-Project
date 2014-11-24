@@ -21,7 +21,6 @@
 	//post
 	String id = request.getParameter("id");	
 	String pwd = request.getParameter("pwd");
-	int a =10;
 	boolean signin = false;
 
 	try {
@@ -32,7 +31,7 @@
 
 		//질의준비
 		stmt = conn
-				.prepareStatement("SELECT * FROM members ");		
+				.prepareStatement("SELECT * FROM user ");		
 		//수행
 		rs = stmt.executeQuery();
 
@@ -40,11 +39,8 @@
 			userid = rs.getString("userid");
 			name = rs.getString("name");
 			password = rs.getString("pwd");
-			
-			
 			if (userid.equals(id) && password.equals(pwd)) {
 				// 로그인 성공
-				
 				session.setAttribute("userId", userid);
 				session.setAttribute("userName", name);
 				signin = true;
@@ -82,15 +78,10 @@
 				} else if (signin) {
 						// 로그인 성공
 						response.sendRedirect("./index.jsp");
-						
 					} else {
 			%>
 			<div class="error">아이디나 비밀번호가 잘못되었습니다.</div>
 			<%
-		
-
-			
-
 				}
 
 				}
