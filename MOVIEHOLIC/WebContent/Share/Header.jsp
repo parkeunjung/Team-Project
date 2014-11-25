@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="java.util.ArrayList"%>
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 8374891877b29d6e77e0a71682771847acec04ce
 <%
 	String [][] navbarImages  = {{"BOXOFFICE","./boxoffice.jsp"},{"REVIEW","./review.jsp"}};
 	String currentMenu = request.getParameter("current");

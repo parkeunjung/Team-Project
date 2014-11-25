@@ -1,8 +1,12 @@
 
 body{
+<<<<<<< HEAD
 	background-image:url('../images/background.jpg');
 	background-size: 1000px 500px;
 
+=======
+	background-image:url("./images/background.jpg");
+>>>>>>> 8374891877b29d6e77e0a71682771847acec04ce
 }
 
 .menubar>ul>li{

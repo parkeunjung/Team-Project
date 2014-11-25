@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import = "java.sql.*"%>
 
 
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
+%>
+>>>>>>> 8374891877b29d6e77e0a71682771847acec04ce
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
