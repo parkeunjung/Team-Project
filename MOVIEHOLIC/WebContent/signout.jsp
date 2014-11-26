@@ -10,9 +10,10 @@ session.invalidate();
 <title>sign out</title>
 </head>
 <body>
+<div class="wrap">
 <script type="text/javascript">
 location.assign("./index.jsp");
 </script>
-
+</div>
 </body>
 </html>

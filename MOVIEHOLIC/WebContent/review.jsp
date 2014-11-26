@@ -13,10 +13,11 @@
 </head>
 
 <body>
+<div class="wrap">
 <jsp:include page="Share/Header.jsp"/>
 <jsp:include page="Share/footer.jsp" />
 
 
-
+</div>
 </body>
 </html>

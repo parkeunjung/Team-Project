@@ -77,6 +77,7 @@
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>
 <body>
+<div class="wrap">
 <jsp:include page="Share/Header.jsp"/>
 
  	<div class="container">
@@ -101,6 +102,6 @@
 	 	<%}%>
  	</div>
 	<jsp:include page="Share/footer.jsp" />
- 
+</div>
 </body>
 </html>

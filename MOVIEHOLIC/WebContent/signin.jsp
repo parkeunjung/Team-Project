@@ -69,6 +69,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
+<div class="wrap">
 
 				<jsp:include page="Share/Header.jsp"/>
 			
@@ -106,7 +107,7 @@
 				</form>
 				</div>
 			</div>
-		</div>
+
 
 			<jsp:include page="Share/footer.jsp" />
 		

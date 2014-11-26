@@ -23,6 +23,7 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="wrap">
 <jsp:include page="Share/Header.jsp"/>
   
 
@@ -83,6 +84,6 @@
   </div>
   	<jsp:include page="Share/footer.jsp" />
   
-  
+</div>
 </body>
 </html>
