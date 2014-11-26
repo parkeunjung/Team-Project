@@ -14,7 +14,8 @@
 <body>
 <div class="wrap">
 	<jsp:include page="Share/Header.jsp"/>
-	
+	<div class="content">
+	</div>
 	<jsp:include page="Share/footer.jsp" />
 	
 </div>
