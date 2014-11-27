@@ -4,7 +4,7 @@
    
 
 <%
-	String [][] navbarImages  = {{"BOXOFFICE","./boxoffice.jsp"},{"REVIEW","./review.jsp"}};
+	String [][] navbarImages  = {{"boxoffice.png","./boxoffice.jsp"},{"review.png","./review.jsp"}};
 	String currentMenu = request.getParameter("current");
 	
 	String username=null;
@@ -20,7 +20,7 @@
 	<!--  Navbar -->
 	<div class="container navbar " role="navigation">
 		<div class = "title">
-			<a href = "index.jsp">MOVIEHOLIC</a>
+			<a href = "index.jsp"><img src="../images/logo.png"></a>
 			</div>
 			
 	<%	if (flag) { %>
@@ -48,7 +48,7 @@
 									else{
 										out.println("<li class = ''>");
 									}
-									out.println("<a href ='"+menuItem[1]+"'>" +menuItem[0]+ "</a>");
+									out.println("<a href ='"+menuItem[1]+"'>" +"<img src='../images/'"+menuItem[0]+">"+ "</a>");
 									out.println("</li>");
 							}
 						%>
