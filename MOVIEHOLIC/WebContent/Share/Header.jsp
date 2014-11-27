@@ -4,7 +4,11 @@
    
 
 <%
+<<<<<<< HEAD
 	String [][] navbarImages  = {{"boxoffice.png","./boxoffice.jsp"},{"review.png","./review.jsp"}};
+=======
+	String [][] navbarImages  = {{"./images/boxoffice.png","./boxoffice.jsp"},{"./images/review.png","./review.jsp"}};
+>>>>>>> 63fc5466a0e20eb19c24af87deb622c48afbdbb7
 	String currentMenu = request.getParameter("current");
 	
 	String username=null;
@@ -20,7 +24,11 @@
 	<!--  Navbar -->
 	<div class="container navbar " role="navigation">
 		<div class = "title">
+<<<<<<< HEAD
 			<a href = "index.jsp"><img src="../images/logo.png"></a>
+=======
+			<a href = "index.jsp"><img src = "./images/logo.png"></a>
+>>>>>>> 63fc5466a0e20eb19c24af87deb622c48afbdbb7
 			</div>
 			
 	<%	if (flag) { %>
@@ -48,7 +56,11 @@
 									else{
 										out.println("<li class = ''>");
 									}
+<<<<<<< HEAD
 									out.println("<a href ='"+menuItem[1]+"'>" +"<img src='../images/'"+menuItem[0]+">"+ "</a>");
+=======
+									out.println("<a href ='"+menuItem[1]+"'><img src=" +menuItem[0]+ "></a>");
+>>>>>>> 63fc5466a0e20eb19c24af87deb622c48afbdbb7
 									out.println("</li>");
 							}
 						%>

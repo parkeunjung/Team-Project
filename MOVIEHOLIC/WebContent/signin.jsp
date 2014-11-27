@@ -17,6 +17,8 @@
 	String userid = "";
 	String name = "";
 	String password = "";
+	String usernumber="";
+	
 	
 	//post
 	String id = request.getParameter("id");	
@@ -40,6 +42,7 @@
 			userid = rs.getString("userid");
 			name = rs.getString("name");
 			password = rs.getString("pwd");
+			usernumber=rs.getString("usernumber");
 			
 			
 			if (userid.equals(id) && password.equals(pwd)) {
@@ -47,6 +50,8 @@
 				
 				session.setAttribute("userId", userid);
 				session.setAttribute("userName", name);
+				session.setAttribute("userNumber", usernumber);
+				session.setAttribute("userPwd",password);
 				signin = true;
 				break;
 			}
@@ -59,6 +64,7 @@
 		if (stmt != null)try {stmt.close();} catch (SQLException e) {}
 		if (conn != null)try {conn.close();} catch (SQLException e) {}
 	}
+
 %>
 <!DOCTYPE html>
 <html>

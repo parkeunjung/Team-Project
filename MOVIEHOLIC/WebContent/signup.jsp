@@ -17,10 +17,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>signup</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	
 	<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
 	<script src="js/jquery-1.8.2.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div class="wrap">
@@ -29,7 +29,7 @@
 
  <div class="content">
 
-	  <div>
+	  
 		  <form class="form-horizontal" action="<%="register.jsp"%>" method="post">
 			<fieldset>
 			  	<input type='hidden' name='id' value='id'>
@@ -73,14 +73,11 @@
 
 
 				<div class="form-group">
-					
-					
 						<input type="submit" class="btn btn-default btn-primary" value="sign up">
-					
 				</div>
 			</fieldset>
 		  </form>
-    </div>
+   
   </div>
   	<jsp:include page="Share/footer.jsp" />
   

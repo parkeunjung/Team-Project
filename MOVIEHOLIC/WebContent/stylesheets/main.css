@@ -3,7 +3,7 @@ html{
 	background-position:center center;
 	background-attachment:fixed;
 	background-size:cover;
-	font-size:9pt; font-family:나눔고딕,맑은 고딕,굴림; color:666666;line-height:150%
+	font-size:9pt; font-family:�굹�닎怨좊뵓,留묒� 怨좊뵓,援대┝; color:666666;line-height:150%
 }
 
 
@@ -19,7 +19,11 @@ a{
 .wrap{
 
 	background-color:white;
+<<<<<<< HEAD
 	width:1200px; height:700px;
+=======
+	width:900px; height:500px;
+>>>>>>> 63fc5466a0e20eb19c24af87deb622c48afbdbb7
 	margin: 0 auto;
 	margin-top:100px;
 }
@@ -58,7 +62,7 @@ a{
 
 .form-horizontal{
 	
-	margin-top : -90px;
+	margin-top : -270px;
 	margin-left: 300px;
 	margin-right: 500px;
 }
@@ -66,18 +70,20 @@ a{
 
 
 label{
-	color:white;
+	color:black;
 }
 .signin{
-	color:white;
+	color:black;
 	margin-top : -90px;
 	margin-left: 300px;
 	margin-right: 300px;
 }
 .alert-success{
-	color:white;
+	color:black;
 	margin-top : -90px;
 	margin-left: 300px;
 	margin-right: 300px;
 	
 }
+
+
