@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*" import="java.sql.*"
-	import="org.apache.commons.lang3.StringUtils"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+		pageEncoding="UTF-8" import="java.util.*"  import="java.sql.*" 
+		import="org.apache.commons.lang3.StringUtils"%>
 
 <%
 	String errorMsg = null;
@@ -171,7 +171,7 @@ span.price {
 					</td>
 			</table>
 		</div>
-			<nav class="pagination_centered">
+		<nav class="pagination_centered">
 			<ul class="pagination">
 				<%
 					// 페이지 네비게이션을 위한 준비
