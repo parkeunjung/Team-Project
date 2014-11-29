@@ -26,10 +26,8 @@
 <div class="wrap">
 <jsp:include page="Share/Header.jsp"/>
   
-
  <div class="content">
 
-	  
 		  <form class="form-horizontal" action="<%="register.jsp"%>" method="post">
 			<fieldset>
 			  	<input type='hidden' name='id' value='id'>
@@ -69,9 +67,6 @@
 					</div>
 				</div>
 
-				
-
-
 				<div class="form-group">
 						<input type="submit" class="btn btn-default btn-primary" value="sign up">
 				</div>
@@ -79,8 +74,9 @@
 		  </form>
    
   </div>
+</div>
   	<jsp:include page="Share/footer.jsp" />
   
-</div>
+
 </body>
 </html>

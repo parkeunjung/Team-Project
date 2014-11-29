@@ -76,47 +76,39 @@
 </head>
 <body>
 <div class="wrap">
-
-				<jsp:include page="Share/Header.jsp"/>
+	<jsp:include page="Share/Header.jsp"/>
 			
 			<%
 				if (request.getMethod() == "POST") {
 					if (id == null || pwd == null || id.length() == 0
 							|| pwd.length() == 0) {
 			%>
-			<div class="error">아이디와 비밀번호를 입력하세요.</div>
+					<div class="error">아이디와 비밀번호를 입력하세요.</div>
 			<%
-				} else if (signin) {
+					} else if (signin) {
 						// 로그인 성공
 						response.sendRedirect("./index.jsp");
 						
 					} else {
 			%>
-			<div class="error">아이디나 비밀번호가 잘못되었습니다.</div>
+						<div class="error">아이디나 비밀번호가 잘못되었습니다.</div>
 			<%
-		
-
-			
-
-				}
+					}
 
 				}
 			%>
-			<div class="content">	
-				<div class="signin">
-				<form method="post">
-					<br> 
-					ID: <input type="text" name="id">
-					Password: <input type="password" name="pwd"> 
-					<input type="submit" value="Sign in"></li>
+	<div class="content">	
+		<div class="signin">
+			<form method="post">
+				<br> 
+				ID: <input type="text" name="id">
+				Password: <input type="password" name="pwd"> 
+				<input type="submit" value="Sign in">
 			
 				</form>
-				</div>
 			</div>
-
-
-			<jsp:include page="Share/footer.jsp" />
-		
+		</div>
 	</div>
+	<jsp:include page="Share/footer.jsp" />
 </html>
 

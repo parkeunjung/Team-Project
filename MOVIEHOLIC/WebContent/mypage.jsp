@@ -1,89 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*"  import="java.sql.*" 
 		%>
-<%
-		String errorMsg = null;
-	
-		String userPwd = (String)session.getAttribute("userPwd");
-		String userId = (String)session.getAttribute("userId");
-		String userid = "";
-		String name = "";
-		String pwd = "";
-		String email = "";
-		
-		
-	
-
-%>    
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>mypage</title>
-	
-	<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
-	<script src="js/jquery-1.8.2.min.js"></script>
-
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+<script src="js/jquery-1.8.2.min.js"></script>
+<title>Mypage</title>
 </head>
 <body>
 <div class="wrap">
-<jsp:include page="Share/Header.jsp"/>
-  
-
- <div class="content">
-
-	  
-		  <form class="form-horizontal" action="<%="update.jsp"%>" method="post">
-			<fieldset>
-			  	
-				<div class="form-group ">
-					<label class="col-sm-2 control-label" for="userid">ID</label>
-					<div class="col-sm-3">
-						<label ><%=userId %></label>
-					</div>
-				</div>
-
-				<div class="form-group ">
-					<label class="col-sm-2 control-label" for="name">Name</label>
-					<div class="col-sm-3">
-						<input type="text" class="form-control" name="name" value="<%=name%>">
-					</div>
-				</div>
-
-				
-					<div class="form-group ">
-						<label class="col-sm-2 control-label" for="pwd">Password</label>
-						<div class="col-sm-3">
-							<input type="password" class="form-control" name="pwd">
-						</div>
-					</div>
+ <jsp:include page="Share/Header.jsp"/>
 	
-					<div class="form-group ">
-						<label class="col-sm-2 control-label" for="pwd_confirm">Password Confirmation</label>
-						<div class="col-sm-3">
-							<input type="password" class="form-control" name="pwd_confirm">
-						</div>
-					</div>
-			
-				<div class="form-group ">
-					<label class="col-sm-2 control-label" for="email">E-mail</label>
-					<div class="col-sm-3">
-						<input type="email" class="form-control"  name="email" value="<%=email%>">
-					</div>
-				</div>
-
-				
-
-
-				<div class="form-group">
-						<input type="submit" class="btn btn-default btn-primary" value="update">
-				</div>
-			</fieldset>
-		  </form>
-   
-  </div>
-  	<jsp:include page="Share/footer.jsp" />
-  
+	<div class="content">
+		<div id="mypage_content">
+		<a href="myinfo.jsp"><h2>개인정보관리</h2></a>
+		<h2>My movie list</h2>
+		</div>
+	</div>
 </div>
+<jsp:include page="Share/footer.jsp" />
+	
+
 </body>
 </html>

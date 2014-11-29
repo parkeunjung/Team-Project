@@ -4,11 +4,8 @@
    
 
 <%
-<<<<<<< HEAD
-	String [][] navbarImages  = {{"boxoffice.png","./boxoffice.jsp"},{"review.png","./review.jsp"}};
-=======
-	String [][] navbarImages  = {{"./images/boxoffice.png","./boxoffice.jsp"},{"./images/review.png","./review.jsp"}};
->>>>>>> 63fc5466a0e20eb19c24af87deb622c48afbdbb7
+	String [][] navbarImages  = {{"images/boxoffice.png","./boxoffice.jsp"},{"images/review.png","./review.jsp"}};
+
 	String currentMenu = request.getParameter("current");
 	
 	String username=null;
@@ -22,31 +19,34 @@
 	}
 %>
 	<!--  Navbar -->
-	<div class="container navbar " role="navigation">
-		<div class = "title">
-<<<<<<< HEAD
-			<a href = "index.jsp"><img src="../images/logo.png"></a>
-=======
-			<a href = "index.jsp"><img src = "./images/logo.png"></a>
->>>>>>> 63fc5466a0e20eb19c24af87deb622c48afbdbb7
-			</div>
-			
+
+	<div id="top">
+	<div id="title">
+	<a href = "index.jsp"><img src = "./images/logo.png"></a>
+	</div>
+	<div id="memberbar">			
 	<%	if (flag) { %>
-	<div class="memberbar">
+
 		<%	out.println(username+"님"); %>
 		<a href = './signout.jsp'>sign out</a>
 		<br>
 		<a href = './mypage.jsp'>my page</a>
-	</div>
+	
 	<% } else{ %>
-	<div class="memberbar">
+	
 		<a href ='./signup.jsp'>sign up</a>
 		<a href ='./signin.jsp'>sign in</a>
-	</div>		
+			
 	<% }%>
+	</div>	
+	
+	
+	</div>
+			
+	
 	
 		
-		<div class = "menubar">
+		<div id="menubar">
 					<ul>
 						<%
 							for(String menuItem[] : navbarImages) {
@@ -56,20 +56,17 @@
 									else{
 										out.println("<li class = ''>");
 									}
-<<<<<<< HEAD
-									out.println("<a href ='"+menuItem[1]+"'>" +"<img src='../images/'"+menuItem[0]+">"+ "</a>");
-=======
+
 									out.println("<a href ='"+menuItem[1]+"'><img src=" +menuItem[0]+ "></a>");
->>>>>>> 63fc5466a0e20eb19c24af87deb622c48afbdbb7
 									out.println("</li>");
 							}
 						%>
 					</ul>
-				</div>		
-			</div>
+				</div>	
+			
+			
 		
 				
-		</div>	 
 			
 				
 	
