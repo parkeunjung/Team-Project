@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 		pageEncoding="UTF-8" import="java.util.*"  import="java.sql.*" 
-		%>
+%>
 
 <%
 	String errorMsg = null;
@@ -69,186 +69,60 @@
 <head>
 <meta charset="UTF-8">
 <title>reviewWrite</title>
-
-<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
-<script src="js/jquery-1.8.2.min.js"></script>
+	<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-<div class="wrap">
-	<div class="container">
-		<style type="text/css">
-#tab {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+	<div class="wrap">
+		<div class="container">
+			<div>
+				<form class="form-horizontal" action="<%=actionUrl%>" method="post">
+					<fieldset>
+						<legend class="legend">평론가평 추가</legend>
+						<%
+							if (errorMsg != null && errorMsg.length() > 0) {
+								// SQL 에러의 경우 에러 메시지 출력
+								out.print("<div class='alert'>" + errorMsg + "</div>");
+							}
+						%>
+						
+				<div class="form-group ">
+					<label class="col-sm-2 control-label" for="M_name">영화이름</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" placeholder="영화이름을 입력해주세요" name="M_name" value="<%=M_name%>">
+					</div>
+				</div>
 
-td, th {
-	border: 1px solid #444;
-	font: 12px/18px "맑은 고딕", "Malgun Gothic";
-	padding: 5px;
-}
+				<div class="form-group ">
+					<label class="col-sm-2 control-label" for="C_name">평론가명</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" placeholder="평론가명을 입력해주세요" name="C_name" value="<%=C_name%>">
+					</div>
+				</div>
+				
+				<div class="form-group ">
+					<label class="col-sm-2 control-label" for="content">내  용</label>
+					<div class="col-sm-3">
+						<textarea name="content" cols="10" rows="5"><%=content%></textarea>
+					</div>
+				</div>
+				
+				<div class="form-group ">
+					<label class="col-sm-2 control-label" for="image">영화이름</label>
+					<div class="col-sm-3">
+						<input type="text" class="form-control" placeholder="이미지 파일 이름을 입력해주세요" name="image" value="<%=image%>">
+					</div>
+				</div>
+				
+					</fieldset>
+				</form>
+			</div>
 
-thead tr, tfoot tr {
-	background: #888;
-	color: #fff;
-}
 
-tbody tr {
-	background: #EEE;
-}
-
-span.price {
-	display: box;
-	text-align: right;
-	width: 200px;
-	font-weight: bold;
-}
-</style>
-	 <%
-	 if (errorMsg != null && errorMsg.length() > 0 ) {
-		// SQL 에러의 경우 에러 메시지 출력
-		out.print("<div class='alert'>" + errorMsg + "</div>");
-		}
-	 %>
-	 	<%
-		try {
-		Class.forName("com.mysql.jdbc.Driver");
-
-		// DB 접속
-		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
-		stmt = conn.createStatement();
-
-		// reviews 테이블: reviews 수 페이지수 개산
-		rs = stmt.executeQuery("SELECT COUNT(*) FROM reviews");
-		rs.next();
-		numItems = rs.getInt(1);
-		numPages = (int) Math.ceil((double) numItems
-				/ (double) numInPage);
-		rs.close();
-		stmt.close();
-
-		// reiewss 테이블 SELECT
-		stmt = conn.createStatement();
-		rs = stmt
-				.executeQuery("SELECT * FROM reviews ORDER BY M_name LIMIT "
-						+ startPos + ", " + numInPage);
-	%>
-		<div>
-		<form class="form-horizontal" action="<%=actionUrl%>" method="post">
-			<fieldset>
-        <legend class="legend">평론가평 추가</legend>
-			<table id="tab" border="1">
-				<thead>
-					<tr>
-						<th>영화이름</th>
-						<th>평론가명</th>
-						<th>내용</th>
-						<th>이미지</th>
-						<th></th>
-					</tr>
-				</thead>
-
-				<tbody>
-				</tbody>
-
-				<tfoot>
-				</tfoot>
-
-			</table>
-			<input type="button" value="평론추가" id="add">
-			</fieldset>
-		  </form>
 		</div>
-
-		<div id="row" style="display: none">
-			<table>
-				<tr>
-					<td><input type="text" size='10' name="M_name"
-						value="<%=M_name%>"></td>
-					<td><input type="text" size='15' name="C_name"
-						value="<%=C_name%>"></td>
-					<td><input type="text" size='10' name="content"
-						value="<%=content%>"></td>
-					<td><input type="text" size='10' name="image"
-						value="<%=image%>"></td>
-					<td>
-					<% if (id <= 0) { %>
-						<input type="submit" class="btn btn-default btn-primary" value="등록">
-					<% } else { %>
-						<input type="submit" class="btn btn-default btn-primary" value="수정">
-					<% } %>		
-						<input type="submit" class="btn btn-xs btn-danger" data-action="delete"
-						data-id="<%=rs.getInt("id")%>">
-					</td>
-			</table>
-		</div>
-		<nav class="pagination_centered">
-			<ul class="pagination">
-				<%
-					// 페이지 네비게이션을 위한 준비
-						int startPageNo, endPageNo;
-						int delta = 5;
-						startPageNo = (pageNo <= delta) ? 1 : pageNo - delta;
-						endPageNo = startPageNo + (delta * 2) + 1;
-
-						if (endPageNo > numPages) {
-							endPageNo = numPages;
-						}
-
-						// 이전 페이지로
-						if (pageNo <= 1) {
-				%>
-				<li class="disabled"><a href="#">&laquo;</a></li>
-				<%
-					} else {
-				%>
-				<li><a href="reviewWrite.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
-				<%
-					}
-
-						// 페이지 목록 출력 (현재-delta ~ 현재+delta까지)
-						String className = "";
-						for (int i = startPageNo; i <= endPageNo; i++) {
-							className = (i == pageNo) ? "active" : "";
-							out.println("<li class='" + className + "'>");
-							out.println("<a href='index.jsp?page=" + i + "'>" + i
-									+ "</a>");
-							out.println("</li>");
-						}
-
-						// 다음 페이지로
-						if (pageNo >= numPages) {
-				%>
-				<li class="disabled"><a href="#">&raquo;</a></li>
-				<%
-					} else {
-				%>
-				<li><a href="reviewWrite.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
-				<%
-					}
-				%>
-			</ul>
-		</nav>
 	</div>
-</div>
 </body>
 </html>
-
-<script type="text/javascript">
-	$(function() {
-		$('#add').click(
-				function() {
-					$('#tab').find("tbody").append(
-							"<tr>" + $('#row').find('tr').html() + "</tr>");
-			});
-		$("a[data-action='delete']").click(function() {
-			if (confirm("정말로 삭제하시겠습니까?")) {
-				location = 'reviewDelete.jsp?id=' + $(this).attr('data-id');
-			}
-			return false;
-		});
-	});
-</script>
