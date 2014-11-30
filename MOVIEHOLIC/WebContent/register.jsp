@@ -57,6 +57,8 @@
 			result = stmt.executeUpdate();
 			if (result != 1) {
 				errorMsgs.add("등록에 실패하였습니다.");
+			}else{
+				
 			}
 		} catch (SQLException e) {
 			errorMsgs.add("SQL 에러: " + e.getMessage());

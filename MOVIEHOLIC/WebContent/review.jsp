@@ -15,10 +15,11 @@
 <body>
 	<div class="wrap">
 		<jsp:include page="Share/Header.jsp" />
-		<jsp:include page="Share/footer.jsp" />
 		
 		
 	</div>
+		<jsp:include page="Share/footer.jsp" />
+
 </body>
 </html>
 
