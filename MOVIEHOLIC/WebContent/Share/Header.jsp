@@ -5,7 +5,7 @@
 
 <%
 
-	String [][] navbarImages  = {{"images/boxoffice.png","./boxoffice.jsp"},{"images/review.png","./review.jsp"}};
+	String [][] navbarImages  = {{"images/boxoffice.png","./boxoffice.jsp"},{"images/review.png","./review.jsp"},{"images/director.png","./director.jsp"}};
 
 
 	String currentMenu = request.getParameter("current");
