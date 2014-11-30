@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 		pageEncoding="UTF-8" import="java.util.*" import="java.sql.*"
-		import="org.apache.commons.lang3.StringUtils"%>
+		%>
 		
 <%
 	Connection conn = null;

@@ -4,8 +4,12 @@
    
 
 <%
+<<<<<<< HEAD
 
 	String [][] navbarImages  = {{"./images/boxoffice.png","./boxoffice.jsp"},{"./images/review.png","./review.jsp"}};
+=======
+	String [][] navbarImages  = {{"images/boxoffice.png","./boxoffice.jsp"},{"images/review.png","./review.jsp"}};
+>>>>>>> 3948346b52bebabf26a244da743ec9551dd4252d
 
 	String currentMenu = request.getParameter("current");
 	
@@ -20,28 +24,43 @@
 	}
 %>
 	<!--  Navbar -->
+<<<<<<< HEAD
 	<div class="container navbar " role="navigation">
 		<div class = "title">
 			<a href = "index.jsp"><img src = "./images/logo.png"></a>
 
 			</div>
 			
+=======
+
+	<div id="top">
+	<div id="title">
+	<a href = "index.jsp"><img src = "./images/logo.png"></a>
+	</div>
+	<div id="memberbar">			
+>>>>>>> 3948346b52bebabf26a244da743ec9551dd4252d
 	<%	if (flag) { %>
-	<div class="memberbar">
+
 		<%	out.println(username+"님"); %>
 		<a href = './signout.jsp'>sign out</a>
 		<br>
 		<a href = './mypage.jsp'>my page</a>
-	</div>
+	
 	<% } else{ %>
-	<div class="memberbar">
+	
 		<a href ='./signup.jsp'>sign up</a>
 		<a href ='./signin.jsp'>sign in</a>
-	</div>		
+			
 	<% }%>
+	</div>	
+	
+	
+	</div>
+			
+	
 	
 		
-		<div class = "menubar">
+		<div id="menubar">
 					<ul>
 						<%
 							for(String menuItem[] : navbarImages) {
@@ -53,16 +72,19 @@
 									}
 
 									out.println("<a href ='"+menuItem[1]+"'><img src=" +menuItem[0]+ "></a>");
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3948346b52bebabf26a244da743ec9551dd4252d
 									out.println("</li>");
 							}
 						%>
 					</ul>
-				</div>		
-			</div>
+				</div>	
+			
+			
 		
 				
-		</div>	 
 			
 				
 	
