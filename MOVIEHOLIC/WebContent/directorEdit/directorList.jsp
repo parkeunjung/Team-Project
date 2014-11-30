@@ -26,7 +26,7 @@
 <head>
 <meta charset="UTF-8">
 <title>영화감독 목록</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
 	<script src="js/jquery-1.8.2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </head>
@@ -42,7 +42,7 @@
 
 		stmt = conn.createStatement();
 
-		// users 테이블: user 수 페이지수 개산
+		// directors 테이블: director 수 페이지수 개산
 		rs = stmt.executeQuery("SELECT COUNT(*) FROM directors");
 		rs.next();
 		numItems = rs.getInt(1);
@@ -51,7 +51,7 @@
 		rs.close();
 		stmt.close();
 
-		// users 테이블 SELECT
+		// directors 테이블 SELECT
 		stmt = conn.createStatement();
 		rs = stmt
 				.executeQuery("SELECT * FROM directors ORDER BY name LIMIT "
@@ -80,7 +80,6 @@
 			<% while(rs.next()) { %>
 				<tr>
 					<td><%=rs.getString("name")%></td>
-					<td><a href="./director.jsp?id=<%=rs.getInt("id")%>"><%=rs.getString("title")%></a></td>
 					<td><a href="directorWrite.jsp?id=<%=rs.getInt("id")%>"
 						class="btn btn-xs">수정</a> <a href="#"
 						class="btn btn-xs btn-danger" data-action="delete"
@@ -131,7 +130,7 @@
 				<%
 					} else {
 				%>
-				<li><a href="index.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
+				<li><a href="directorList.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
 				<%
 					}
 				%>
@@ -157,4 +156,14 @@
 	</div>
 </div>
 </body>
+<script>
+	$(function() {
+		$("a[data-action='delete']").click(function() {
+			if (confirm("정말로 삭제하시겠습니까?")) {
+				location = 'directorDelete.jsp?id=' + $(this).attr('data-id');
+			}
+			return false;
+		});
+	});
+	</script>
 </html>
