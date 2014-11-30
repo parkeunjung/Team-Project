@@ -118,7 +118,7 @@
 			<b><%=M_name%></b>의 내용이 수정되었습니다.
 		</div>
 		<div class="form-group">
-			<a href="reviewList.jsp" class="btn btn-default">목록으로</a>
+			<a href="reviewWrite.jsp" class="btn btn-default">목록으로</a>
 		</div>
 		<%
 			}

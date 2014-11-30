@@ -66,7 +66,7 @@
 		<div class="alert alert-success">평론을 삭제하였습니다.</div>
 		<%}%>
 		<div class="form-group">
-			<a href="reviewList.jsp" class="btn btn-default">목록으로</a>
+			<a href="reviewWrite.jsp" class="btn btn-default">목록으로</a>
 		</div>
 	</div>
 </div>

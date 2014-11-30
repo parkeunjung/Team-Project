@@ -12,18 +12,8 @@
 	ResultSet rs = null;
 
 	String dbUrl = "jdbc:mysql://localhost:3306/movieholic";
-	String dbUser = "kbc13";;
+	String dbUser = "kbc13";
 	String dbPassword = "a12345";
-	//페이지
-	int pageNo = 1;
-	
-	try {
-		pageNo = Integer.parseInt(request.getParameter("page"));
-	} catch (NumberFormatException ex){}
-	
-	int numInPage = 10 ;
-	int startPos = (pageNo - 1)*numInPage;
-	int numItems,numPages;
 	
 	// 사용자 정보를 위한 변수 초기화
 	String M_name = "";
@@ -122,6 +112,30 @@ span.price {
 		out.print("<div class='alert'>" + errorMsg + "</div>");
 		}
 	 %>
+	 	<%
+		try {
+		Class.forName("com.mysql.jdbc.Driver");
+
+		// DB 접속
+		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+
+		stmt = conn.createStatement();
+
+		// reviews 테이블: reviews 수 페이지수 개산
+		rs = stmt.executeQuery("SELECT COUNT(*) FROM reviews");
+		rs.next();
+		numItems = rs.getInt(1);
+		numPages = (int) Math.ceil((double) numItems
+				/ (double) numInPage);
+		rs.close();
+		stmt.close();
+
+		// reiewss 테이블 SELECT
+		stmt = conn.createStatement();
+		rs = stmt
+				.executeQuery("SELECT * FROM reviews ORDER BY M_name LIMIT "
+						+ startPos + ", " + numInPage);
+	%>
 		<div>
 		<form class="form-horizontal" action="<%=actionUrl%>" method="post">
 			<fieldset>

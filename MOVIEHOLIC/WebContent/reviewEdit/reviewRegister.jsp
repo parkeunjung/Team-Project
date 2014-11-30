@@ -93,7 +93,7 @@
 	 			<b><%= M_name %></b>의 평론이 등록되었습니다.
 	 		</div>
 		 	<div class="form-group">
-		 		<a href="reviewList.jsp" class="btn">목록으로</a>
+		 		<a href="reviewWrite.jsp" class="btn">목록으로</a>
 		 	</div>
 	 		
 	 	<%}%>
