@@ -14,9 +14,15 @@
  <jsp:include page="Share/Header.jsp"/>
 	
 	<div class="content">
+		Mypage
 		<div id="mypage_content">
-		<a href="myinfo.jsp"><h2>개인정보관리</h2></a>
-		<h2>My movie list</h2>
+			<div class="mypage_content">
+			<a href="myinfo.jsp">MEMBERSHIP</a>
+			</div>
+			<br>
+			<div class="mypage_content">
+				<a href="mymovielist.jsp">My movie list</a>
+			</div>
 		</div>
 	</div>
 </div>

@@ -32,16 +32,17 @@
 
 	<%	if (flag) { %>
 
-		<%	out.println(username+"님"); %>
+		<%	out.println("<p id='name'>"+username+"</p>"); %>
+		<div class="memberbar_inner">
 		<a href = './signout.jsp'>sign out</a>
-		<br>
 		<a href = './mypage.jsp'>my page</a>
-	
+		</div>
 	<% } else{ %>
-	
+		<div class="memberbar_inner">
+		<br><br>
 		<a href ='./signup.jsp'>sign up</a>
 		<a href ='./signin.jsp'>sign in</a>
-			
+		</div>
 	<% }%>
 	</div>	
 

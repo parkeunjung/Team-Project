@@ -1,3 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700);
+@import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+
+div.memberbar_inner{
+font-family: 'Yanone Kaffeesatz', sans-serif;	font-size:20px;
+}
+p#name{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size:15px;
+	
+}
+
 html{
 	background-image:url("../images/background.jpg");
 	background-position:center center;
@@ -18,6 +30,7 @@ div.content{
 	height:338px;
 	margin-left:50px;
 	margin-top:50px;
+	font-family: 'Jeju Myeongjo', serif;
 	
 }
 div.wrap{
@@ -30,7 +43,7 @@ div.wrap{
 }
 
 div#top{
-	width:1054px;
+	width:1200px;
 	height:262px;
 	margin:0px;
 	padding:0px;
@@ -43,12 +56,11 @@ div#title{
 
 div#memberbar{
 	float:left;	
-	width:724px;
+	width:860px;
 	height:232px;
-	margin-top:30px;
+	margin-top:40px;
 	margin-right:30px;
 	text-align: right;
-	font-size:15px;
 	
 }
 
@@ -59,10 +71,12 @@ div#menubar{
 	float:left;
 }
 
+ul{
+	list-style-type:none;
+}
 div#menubar>ul>li{
 	width:150px;
 	padding:0px;
-	list-style:none;
 	margin : 0px;
 }
 div#menubar>ul{
@@ -73,6 +87,16 @@ form.form-horizontal{
 	width:300px;
 }
 div#mypage_content{
+	width:600px;
+	hegith:200px;
+	margin-left: 150px;
+	margin-top : 20px;
+	font-size:18px;
+
+}
+div.mypage_content{
+	width:200px;
+	height:100px
 	margin: 0 auto;
 }
 
