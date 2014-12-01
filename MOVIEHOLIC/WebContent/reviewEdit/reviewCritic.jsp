@@ -16,7 +16,7 @@
 		pageNo = Integer.parseInt(request.getParameter("page"));
 	} catch (NumberFormatException ex){}
 	
-	int numInPage = 3 ;
+	int numInPage = 5 ;
 	int startPos = (pageNo - 1)*numInPage;
 	int numItems,numPages;
 %>
@@ -26,14 +26,13 @@
 <head>
 <meta charset="UTF-8">
 <title>review</title>
-	<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
-	<script src="js/jquery-1.8.2.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+	<script src="../js/jquery-1.8.2.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </head>
 
 <body>
 	<div class="wrap">
-		<jsp:include page="Share/Header.jsp" />
 			<div class="container">
 	<%
 		try {
@@ -45,7 +44,7 @@
 		stmt = conn.createStatement();
 
 		// reviews 테이블: review 수 페이지수 개산
-		rs = stmt.executeQuery("SELECT COUNT(*) FROM directors");
+		rs = stmt.executeQuery("SELECT COUNT(*) FROM reviews");
 		rs.next();
 		numItems = rs.getInt(1);
 		numPages = (int) Math.ceil((double) numItems
@@ -56,7 +55,7 @@
 		// reviews 테이블 SELECT
 		stmt = conn.createStatement();
 		rs = stmt
-				.executeQuery("SELECT * FROM directors ORDER BY name LIMIT "
+				.executeQuery("SELECT * FROM reviews ORDER BY M_name LIMIT "
 						+ startPos + ", " + numInPage);
 	%>
 	
@@ -75,7 +74,7 @@
 			<tbody>
 			<% while(rs.next()) { %>
 				<tr>
-					<td><a href="directorEdit/directorShow.jsp?id=<%=rs.getInt("id")%>"><img src="directorImg/<%=rs.getString("image")%>"></a></td>
+					<td><a href="reviewShow.jsp?id=<%=rs.getInt("id")%>"><img src="./MoviePoster/<%=rs.getString("image")%>"></a></td>
 				</tr>
 				<%} %>
 			</tbody>
@@ -101,7 +100,7 @@
 				<%
 					} else {
 				%>
-				<li><a href="director.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
+				<li><a href="reviewGallery.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
 				<%
 					}
 
@@ -110,7 +109,7 @@
 						for (int i = startPageNo; i <= endPageNo; i++) {
 							className = (i == pageNo) ? "active" : "";
 							out.println("<li class='" + className + "'>");
-							out.println("<a href='reviewList.jsp?page=" + i + "'>" + i
+							out.println("<a href='reviewGallery.jsp?page=" + i + "'>" + i
 									+ "</a>");
 							out.println("</li>");
 						}
@@ -122,7 +121,7 @@
 				<%
 					} else {
 				%>
-				<li><a href="director.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
+				<li><a href="reviewGallery.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
 				<%
 					}
 				%>
@@ -143,8 +142,5 @@
 		%>
 	</div>
 </div>
-<jsp:include page="Share/footer.jsp"/>
 </body>
-
 </html>
-

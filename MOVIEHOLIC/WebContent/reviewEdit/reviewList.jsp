@@ -26,13 +26,16 @@
 <head>
 <meta charset="UTF-8">
 <title>평론가평 목록</title>
-		<link href="stylesheets/main.css" rel="stylesheet">
-	
-	<script src="js/jquery-1.8.2.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+
+	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+	<link href="../stylesheets/base.css" rel="stylesheet">
+	<script src="../js/jquery-1.8.2.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div class="wrap">
+<jsp:include page="../Share/Header.jsp"/>
 	<div class="container">
 	<%
 		try {
@@ -112,7 +115,7 @@
 				<%
 					} else {
 				%>
-				<li><a href="index.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
+				<li><a href="reviewList.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
 				<%
 					}
 
@@ -158,6 +161,7 @@
 	
 	</div>
 </div>
+<jsp:include page="../Share/footer.jsp"/>
 </body>
 <script>
 	$(function() {

@@ -69,14 +69,16 @@
 <head>
 <meta charset="UTF-8">
 <title>reviewWrite</title>
-	<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
-	<script src="js/jquery-1.8.2.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+	<link href="../stylesheets/base.css" rel="stylesheet">
+	<script src="../js/jquery-1.8.2.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
 	<div class="wrap">
+	<jsp:include page="../Share/Header.jsp"/>
 		<div class="container">
 			<div>
 				<form class="form-horizontal" action="<%=actionUrl%>" method="post">
@@ -111,10 +113,19 @@
 				</div>
 				
 				<div class="form-group ">
-					<label class="col-sm-2 control-label" for="image">영화이름</label>
+					<label class="col-sm-2 control-label" for="image">포스터</label>
 					<div class="col-sm-3">
 						<input type="text" class="form-control" placeholder="이미지 파일 이름을 입력해주세요" name="image" value="<%=image%>">
 					</div>
+				</div>
+				
+				<div class="form-group">
+					<a href="index.jsp" class="col-sm-offset-2 btn btn-default">목록으로</a>
+					<% if (id <= 0) { %>
+						<input type="submit" class="btn btn-default btn-primary" value="등록">
+					<% } else { %>
+						<input type="submit" class="btn btn-default btn-primary" value="수정">
+					<% } %>
 				</div>
 				
 					</fieldset>
@@ -124,5 +135,6 @@
 
 		</div>
 	</div>
+	<jsp:include page="../Share/footer.jsp"/>
 </body>
 </html>

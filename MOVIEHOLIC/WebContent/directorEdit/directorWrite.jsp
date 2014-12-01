@@ -75,12 +75,14 @@
 <meta charset="UTF-8">
 <title>영화감독 쓰기</title>
 
-<link href="stylesheets/bootstrap.min.css" rel="stylesheet">
-	<script src="js/jquery-1.8.2.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
+	<link href="../stylesheets/base.css" rel="stylesheet">
+	<script src="../js/jquery-1.8.2.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="wrap">
+<jsp:include page="../Share/Header.jsp"/>
 	<div class="container">
 	<%
  if (errorMsg != null && errorMsg.length() > 0 ) {
@@ -154,5 +156,6 @@
 
 	</div>
 </div>
+<jsp:include page="../Share/footer.jsp"/>
 </body>
 </html>
