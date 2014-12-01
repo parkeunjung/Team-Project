@@ -35,8 +35,8 @@
 </head>
 <body>
 <div class="wrap">
-<jsp:include page="../Share/Header.jsp"/>
-	<div class="container">
+	<jsp:include page="Share/Header.jsp"/>
+	<div class="container">	
 	<%
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -161,7 +161,7 @@
 	
 	</div>
 </div>
-<jsp:include page="../Share/footer.jsp"/>
+	<jsp:include page="Share/footer.jsp" />
 </body>
 <script>
 	$(function() {

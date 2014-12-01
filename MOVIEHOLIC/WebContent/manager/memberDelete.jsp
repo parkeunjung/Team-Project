@@ -25,7 +25,7 @@
 	
 	try {
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-		stmt = conn.prepareStatement("DELETE FROM reviews WHERE id=?");
+		stmt = conn.prepareStatement("DELETE FROM members WHERE usernumber=?");
 		stmt.setInt(1,  id);
 		
 		result = stmt.executeUpdate();
@@ -47,7 +47,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>평론가평 삭제</title>
+<title>delete member</title>
 	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
 	<link href="../stylesheets/base.css" rel="stylesheet">
 	<script src="../js/jquery-1.8.2.min.js"></script>
@@ -62,10 +62,10 @@
 			<%= errorMsg %>
 		</div>
 		<% } else { %>
-		<div class="alert alert-success">평론을 삭제하였습니다.</div>
+		<div class="alert alert-success"> 삭제하였습니다.</div>
 		<%}%>
 		<div class="form-group">
-			<a href="reviewWrite.jsp" class="btn btn-default">목록으로</a>
+			<a href="manage_members.jsp" class="btn btn-default">back</a>
 		</div>
 	</div>
 </div>
