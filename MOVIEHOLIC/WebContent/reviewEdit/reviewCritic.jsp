@@ -16,7 +16,7 @@
 		pageNo = Integer.parseInt(request.getParameter("page"));
 	} catch (NumberFormatException ex){}
 	
-	int numInPage = 9 ;
+	int numInPage = 5 ;
 	int startPos = (pageNo - 1)*numInPage;
 	int numItems,numPages;
 %>
@@ -25,17 +25,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>평론가평 목록</title>
+<title>review</title>
 	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
-	<link href="../stylesheets/base.css" rel="stylesheet">
 	<script src="../js/jquery-1.8.2.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-
 </head>
+
 <body>
-<div class="wrap">
-<jsp:include page="../Share/Header.jsp"/>
-	<div class="container">
+	<div class="wrap">
+			<div class="container">
 	<%
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -73,22 +71,10 @@
 		</div>
 		
 		<table class="table table-bordered table-stripped">
-			<thead>
-				<tr>
-					<th>영화이름</th>
-					<th>평론가명</th>
-					<th></th>
-				</tr>
-			</thead>
 			<tbody>
 			<% while(rs.next()) { %>
 				<tr>
-					<td><%=rs.getString("M_name")%></td>
-					<td><%=rs.getString("C_name")%></td>
-					<td><a href="directorWrite.jsp?id=<%=rs.getInt("id")%>"
-						class="btn btn-xs">수정</a> <a href="#"
-						class="btn btn-xs btn-danger" data-action="delete"
-						data-id="<%=rs.getInt("id")%>">삭제</a></td>
+					<td><a href="reviewShow.jsp?id=<%=rs.getInt("id")%>"><img src="./MoviePoster/<%=rs.getString("image")%>"></a></td>
 				</tr>
 				<%} %>
 			</tbody>
@@ -114,7 +100,7 @@
 				<%
 					} else {
 				%>
-				<li><a href="reviewList.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
+				<li><a href="reviewGallery.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
 				<%
 					}
 
@@ -123,7 +109,7 @@
 						for (int i = startPageNo; i <= endPageNo; i++) {
 							className = (i == pageNo) ? "active" : "";
 							out.println("<li class='" + className + "'>");
-							out.println("<a href='reviewList.jsp?page=" + i + "'>" + i
+							out.println("<a href='reviewGallery.jsp?page=" + i + "'>" + i
 									+ "</a>");
 							out.println("</li>");
 						}
@@ -135,7 +121,7 @@
 				<%
 					} else {
 				%>
-				<li><a href="reviewList.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
+				<li><a href="reviewGallery.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
 				<%
 					}
 				%>
@@ -154,22 +140,7 @@
 				if (conn != null) try {conn.close();} catch (SQLException e) {}
 			}
 		%>
-		<div class="form-group">
-			<a href="reviewWrite.jsp" class="btn btn-primary">글쓰기</a>
-		</div>
-	
 	</div>
 </div>
-<jsp:include page="../Share/footer.jsp"/>
 </body>
-<script>
-	$(function() {
-		$("a[data-action='delete']").click(function() {
-			if (confirm("정말로 삭제하시겠습니까?")) {
-				location = 'reviewDelete.jsp?id=' + $(this).attr('data-id');
-			}
-			return false;
-		});
-	});
-	</script>
 </html>
