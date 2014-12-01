@@ -9,9 +9,9 @@
 <body>
 	<div class="content">
 		<ul>
-		<li><a href="manage_members">Manage members</a></li>
-		<li><a href="manage_director">Manage director</a></li>
-		<li><a href="manage_review">Manage review</a></li>
+		<li><a href="manage_members.jsp">Manage members</a></li>
+		<li><a href="manage_director.jsp">Manage director</a></li>
+		<li><a href="manage_review.jsp">Manage review</a></li>
 		</ul>
 	</div>
 
