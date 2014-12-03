@@ -15,7 +15,7 @@ html{
 	background-position:center center;
 	background-attachment:fixed;
 	background-size:cover;
-	font-size:9pt; font-family:占쎄돌占쎈땸�⑥쥓逾�,筌띾쵐占� �⑥쥓逾�,�뤃���뵝; color:666666;line-height:150%
+	font-size:10pt; font-family:나눔고딕,맑은 고딕,굴림; color:666666;line-height:150%;
 }
 
 
@@ -28,7 +28,7 @@ div.content{
 	float:left;
 	width:850px;
 	height:338px;
-	margin-left:50px;
+	margin-left:120px;
 	margin-top:50px;
 	font-family: 'Jeju Myeongjo', serif;
 	
