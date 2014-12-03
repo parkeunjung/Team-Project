@@ -62,22 +62,12 @@
 						+ startPos + ", " + numInPage);
 	%>
 	
-	<div class="row">
-			<div class="col-md-12 page-info">
-				<div class="pull-left">
-					Total <b><%=numItems%></b> users
-				</div>
-				<div class="pull-right">
-					<b><%=pageNo%></b> page / total <b><%=numPages%></b> pages
-				</div>
-			</div>
-		</div>
 		
 		<table class="table table-bordered table-stripped">
 			<tbody>
 			<% while(rs.next()) { %>
 				<tr>
-					<th><a href="reviewEdit/reviewShow.jsp?id=<%=rs.getInt("id")%>"><img src="MoviePoster/<%=rs.getString("image")%>"></a></th>
+					<th><a href="reviewEdit/reviewShow.jsp?m_name=<%=rs.getString("m_name")%>"><img src="MoviePoster/<%=rs.getString("image")%>"></a></th>
 				</tr>
 				<%} %>
 			</tbody>

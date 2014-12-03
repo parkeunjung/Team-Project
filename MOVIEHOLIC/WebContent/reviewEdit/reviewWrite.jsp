@@ -120,7 +120,7 @@
 				</div>
 				
 				<div class="form-group">
-					<a href="index.jsp" class="col-sm-offset-2 btn btn-default">목록으로</a>
+					<a href="reviewList.jsp" class="col-sm-offset-2 btn btn-default">목록으로</a>
 					<% if (id <= 0) { %>
 						<input type="submit" class="btn btn-default btn-primary" value="등록">
 					<% } else { %>

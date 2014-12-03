@@ -35,7 +35,7 @@
 </head>
 <body>
 <div class="wrap">
-	<jsp:include page="Share/Header.jsp"/>
+	<jsp:include page="../Share/Header.jsp"/>
 	<div class="container">	
 	<%
 		try {
@@ -86,7 +86,7 @@
 				<tr>
 					<td><%=rs.getString("M_name")%></td>
 					<td><%=rs.getString("C_name")%></td>
-					<td><a href="directorWrite.jsp?id=<%=rs.getInt("id")%>"
+					<td><a href="reviewWrite.jsp?id=<%=rs.getInt("id")%>"
 						class="btn btn-xs">수정</a> <a href="#"
 						class="btn btn-xs btn-danger" data-action="delete"
 						data-id="<%=rs.getInt("id")%>">삭제</a></td>
@@ -161,7 +161,7 @@
 	
 	</div>
 </div>
-	<jsp:include page="Share/footer.jsp" />
+	<jsp:include page="../Share/footer.jsp" />
 </body>
 <script>
 	$(function() {

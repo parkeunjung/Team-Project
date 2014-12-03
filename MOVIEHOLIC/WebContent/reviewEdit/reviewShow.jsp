@@ -21,15 +21,24 @@
 	String C_name = "";
 	String content = "";
 	String image="";
+	int pageNo = 1;
 	
-	// Request로 ID가 있는지 확인
-	int id = 0;
 	try {
-		id = Integer.parseInt(request.getParameter("id"));
+		pageNo = Integer.parseInt(request.getParameter("page"));
+	} catch (NumberFormatException ex){}
+	
+	int numInPage = 9 ;
+	int startPos = (pageNo - 1)*numInPage;
+	int numItems,numPages;
+	// Request로 ID가 있는지 확인
+	String m_name="";
+	try {
+		m_name = (request.getParameter("M_name"));
+		m_name = new String(m_name.getBytes("8859_1"), "UTF-8");
 	} catch (Exception e) {
 	}
 
-	if (id > 0) {
+	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
@@ -39,8 +48,8 @@
 
 			// 질의 준비
 			stmt = conn
-					.prepareStatement("SELECT * FROM reviews WHERE id = ?");
-			stmt.setInt(1, id);
+					.prepareStatement("SELECT * FROM reviews WHERE M_name = "+m_name);
+			
 
 			// 수행
 			rs = stmt.executeQuery();
@@ -59,9 +68,7 @@
 		  if (stmt != null) try{stmt.close();} catch(SQLException e) {}
 		  if (conn != null) try{conn.close();} catch(SQLException e) {}
 		    }
-	} else {
-		errorMsg = "ID가 지정되지 않았습니다.";
-	}
+
 %>
 
 <!DOCTYPE html>
