@@ -26,9 +26,7 @@
 <head>
 <meta charset="UTF-8">
 <title>review</title>
-	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
 	<script src="../js/jquery-1.8.2.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
 </head>
 
 <body>
