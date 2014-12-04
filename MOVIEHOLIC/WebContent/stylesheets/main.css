@@ -17,7 +17,15 @@ html{
 	background-size:cover;
 	font-size:10pt; font-family:나눔고딕,맑은 고딕,굴림; color:666666;line-height:150%;
 }
-
+tr#attribute>td{
+	background-color:gray;
+	border: 2px solid black;
+	
+}
+table#boxoffice{
+	border-collapse:collapse;
+	
+}
 
 
 a{
@@ -31,6 +39,7 @@ div.content{
 	margin-left:120px;
 	margin-top:50px;
 	font-family: 'Jeju Myeongjo', serif;
+	font-size:20px;
 	
 }
 div.wrap{

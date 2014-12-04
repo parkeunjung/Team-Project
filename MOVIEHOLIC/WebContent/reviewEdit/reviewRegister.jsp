@@ -74,7 +74,6 @@
 <body>
 
 <div class="wrap">
-<jsp:include page="../Share/Header.jsp"/>
 	<div class="container">
 		<% if (errorMsgs.size() > 0) { %>
  			<div class="alert alert-danger">
@@ -101,6 +100,5 @@
 	</div>
 </div>
 
-<jsp:include page="../Share/footer.jsp"/>
 </body>
 </html>

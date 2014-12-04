@@ -78,7 +78,6 @@
 <body>
 
 	<div class="wrap">
-	<jsp:include page="../Share/Header.jsp"/>
 		<div class="container">
 			<div>
 				<form class="form-horizontal" action="<%=actionUrl%>" method="post">
@@ -135,6 +134,5 @@
 
 		</div>
 	</div>
-	<jsp:include page="../Share/footer.jsp"/>
 </body>
 </html>

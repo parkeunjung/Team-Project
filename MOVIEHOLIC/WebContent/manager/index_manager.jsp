@@ -4,15 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<link href="../stylesheets/manage.css" rel="stylesheet">
+
 <title>manager page</title>
 </head>
 <body>
 	<div class="content">
-		<ul>
-		<li><a href="manage_members.jsp">Manage members</a></li>
-		<li><a href="../directorEdit/directorList.jsp">Manage director</a></li>
-		<li><a href="../reviewEdit/reviewList.jsp">Manage review</a></li>
+	<div class="content_inner">
+		<ul id="list_managepage">
+		<li><a href="manage_members.jsp">· Manage members</a></li>
+		<li><a href="../directorEdit/directorList.jsp">· Manage director</a></li>
+		<li><a href="../reviewEdit/reviewList.jsp">· Manage review</a></li>
 		</ul>
+	</div>
 	</div>
 
 </body>

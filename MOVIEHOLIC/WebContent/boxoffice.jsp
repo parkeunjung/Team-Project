@@ -87,8 +87,8 @@ request.setAttribute("codeResult", codeResult);
 <jsp:include page="Share/Header.jsp"/>
 	
 	<div class="content">
-		<table border="1">
-			<tr>
+		<table border="1" id="boxoffice">
+			<tr id="attribute">
 				<%=yesterday %>
 				
 				<td>순위</td>

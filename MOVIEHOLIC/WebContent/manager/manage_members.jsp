@@ -31,11 +31,11 @@
 	<link href="../stylesheets/base.css" rel="stylesheet">
 	<script src="../js/jquery-1.8.2.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
+	<link href="../stylesheets/manage.css" rel="stylesheet">
 
 </head>
 <body>
 <div class="wrap">
-	<div class="container">
 	<%
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -156,9 +156,8 @@
 				if (conn != null) try {conn.close();} catch (SQLException e) {}
 			}
 		%>
-\	
+	
 	</div>
-</div>
 </body>
 <script>
 	$(function() {
