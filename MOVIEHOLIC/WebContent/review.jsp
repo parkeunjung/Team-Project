@@ -68,7 +68,7 @@
 				<tr>
 
 				<% while(rs.next()) { %>
-					<td><a href="reviewEdit/reviewShow.jsp?m_name=<%=rs.getString("m_name")%>"><img src="MoviePoster/<%=rs.getString("image")%>.PNG"></a></th>
+					<td><a href="reviewShow.jsp?m_name=<%=rs.getString("m_name")%>"><img src="MoviePoster/<%=rs.getString("image")%>.PNG"></a></th>
 				<%} %>
 				</tr>
 			</tbody>
