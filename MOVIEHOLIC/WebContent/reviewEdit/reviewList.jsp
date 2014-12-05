@@ -29,6 +29,7 @@
 
 	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
 	<link href="../stylesheets/base.css" rel="stylesheet">
+	<link href="../stylesheets/manage.css" rel="stylesheet">
 	<script src="../js/jquery-1.8.2.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 
@@ -95,6 +96,9 @@
 		</table>
 	
 	<nav class="pagination_centered">
+		<div class ="back">
+			<a href="../manager/index_manager.jsp">back</a>
+		</div>
 			<ul class="pagination">
 				<%
 					// 페이지 네비게이션을 위한 준비

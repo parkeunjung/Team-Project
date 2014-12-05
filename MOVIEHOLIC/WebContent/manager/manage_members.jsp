@@ -96,7 +96,12 @@
 			</tbody>
 		</table>
 	
+	
 	<nav class="pagination_centered">
+		<div class ="back">
+			<a href="index_manager.jsp">back</a>
+		</div>
+	
 			<ul class="pagination">
 				<%
 					// 페이지 네비게이션을 위한 준비

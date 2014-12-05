@@ -22,7 +22,20 @@ div.content_inner{
 	height:300px;
 	margin-top:60px;
 }
-
+div.wrap{
+	background-color:black;
+	color:white;
+}
+div.back{
+	float:left;
+	font-size:30px;
+}
+a:hover{
+	color:white; text-decoration:none;
+}
+div.pagination_centered{
+	float:left;
+}
 li{
 	list-style:none;
 }
