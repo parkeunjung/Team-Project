@@ -24,7 +24,6 @@
 	<!--  Navbar -->
 
 	
-
 	<div id="top">
 	<div id="title">
 	<a href = "index.jsp"><img src = "./images/logo.png"></a>
@@ -49,7 +48,7 @@
 
 	</div>
 			
-		<div id="menubar">
+		<div id="menubar" style="float:left">
 					<ul>
 						<%
 							for(String menuItem[] : navbarImages) {
@@ -66,7 +65,7 @@
 							}
 						%>
 					</ul>
-				</div>	
+				</div>
 			
 			
 		

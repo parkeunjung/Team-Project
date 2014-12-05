@@ -9,6 +9,10 @@ p#name{
 	font-size:15px;
 	
 }
+div#reviewtable{
+	width:750px;
+	margin:0px;
+}
 
 html{
 	background-image:url("../images/background.jpg");
@@ -27,7 +31,6 @@ table#boxoffice{
 	
 }
 
-
 a{
 	color: black;
 	text-decoration:none;
@@ -36,10 +39,11 @@ div.content{
 	float:left;
 	width:850px;
 	height:338px;
-	margin-left:120px;
+	margin-left:50px;
 	margin-top:50px;
 	font-family: 'Jeju Myeongjo', serif;
 	font-size:20px;
+	float:left
 	
 }
 div.wrap{

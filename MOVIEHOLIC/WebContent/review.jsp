@@ -16,9 +16,10 @@
 		pageNo = Integer.parseInt(request.getParameter("page"));
 	} catch (NumberFormatException ex){}
 	
-	int numInPage = 5 ;
+	int numInPage = 4 ;
 	int startPos = (pageNo - 1)*numInPage;
 	int numItems,numPages;
+
 %>
 
 <!DOCTYPE html>
@@ -26,6 +27,7 @@
 <head>
 <meta charset="UTF-8">
 <title>review</title>
+	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
 
 	<link href="stylesheets/main.css" rel="stylesheet">
 	<script src="js/jquery-1.8.2.min.js"></script>
@@ -34,7 +36,7 @@
 <body>
 	<div class="wrap">
 	<jsp:include page="Share/Header.jsp"/>
-			<div class="container">
+	
 	<%
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -59,20 +61,25 @@
 				.executeQuery("SELECT * FROM reviews ORDER BY M_name LIMIT "
 						+ startPos + ", " + numInPage);
 	%>
-	
-		
-		<table class="table table-bordered table-stripped">
+		<div class="content">
+		<div id="reviewtable">
+		<table class=>
 			<tbody>
-			<% while(rs.next()) { %>
 				<tr>
-					<th><a href="reviewEdit/reviewShow.jsp?m_name=<%=rs.getString("m_name")%>"><img src="MoviePoster/<%=rs.getString("image")%>"></a></th>
-				</tr>
+
+				<% while(rs.next()) { %>
+					<td><a href="reviewEdit/reviewShow.jsp?m_name=<%=rs.getString("m_name")%>"><img src="MoviePoster/<%=rs.getString("image")%>.PNG"></a></th>
 				<%} %>
+				</tr>
 			</tbody>
 		</table>
+		</div>
+		
 	
 	<nav class="pagination_centered">
-			<ul class="pagination">
+			<table class="pagination">
+				<tr>
+
 				<%
 					// 페이지 네비게이션을 위한 준비
 						int startPageNo, endPageNo;
@@ -87,11 +94,11 @@
 						// 이전 페이지로
 						if (pageNo <= 1) {
 				%>
-				<li class="disabled"><a href="#">&laquo;</a></li>
+				<td class="disabled"><a href="#">&laquo;</a></td>
 				<%
 					} else {
 				%>
-				<li><a href="review.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
+				<td><a href="review.jsp?page=<%=pageNo - 1%>">&laquo;</a></td>
 				<%
 					}
 
@@ -99,40 +106,43 @@
 						String className = "";
 						for (int i = startPageNo; i <= endPageNo; i++) {
 							className = (i == pageNo) ? "active" : "";
-							out.println("<li class='" + className + "'>");
+							out.println("<td class='" + className + "'>");
 							out.println("<a href='review.jsp?page=" + i + "'>" + i
 									+ "</a>");
-							out.println("</li>");
+							out.println("</td>");
 						}
 
 						// 다음 페이지로
 						if (pageNo >= numPages) {
 				%>
-				<li class="disabled"><a href="#">&raquo;</a></li>
+				<td class="disabled"><a href="#">&raquo;</a></td>
 				<%
 					} else {
 				%>
-				<li><a href="review.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
+				<td><a href="review.jsp?page=<%=pageNo + 1%>">&raquo;</a></td>
 				<%
 					}
 				%>
-			</ul>
+			</tr>
+			<%} catch (SQLException e) {
+			// SQL 에러의 경우 에러 메시지 출력
+			out.print("<div class='alert'>" + e.getLocalizedMessage()
+					+ "</div>");
+		} finally {
+			// 무슨 일이 있어도 리소스를 제대로 종료
+			if (rs != null) try {rs.close();} catch (SQLException e) {}
+			if (stmt != null) try {stmt.close();} catch (SQLException e) {}
+			if (conn != null) try {conn.close();} catch (SQLException e) {}
+		}
+		%> 
+		</table>
 		</nav>
+		</div>
+		</div>
 		
-				<%
-			} catch (SQLException e) {
-				// SQL 에러의 경우 에러 메시지 출력
-				out.print("<div class='alert'>" + e.getLocalizedMessage()
-						+ "</div>");
-			} finally {
-				// 무슨 일이 있어도 리소스를 제대로 종료
-				if (rs != null) try {rs.close();} catch (SQLException e) {}
-				if (stmt != null) try {stmt.close();} catch (SQLException e) {}
-				if (conn != null) try {conn.close();} catch (SQLException e) {}
-			}
-		%>
-	</div>
-</div>
+		
+				
+
 <jsp:include page="Share/footer.jsp"/>
 </body>
 </html>
