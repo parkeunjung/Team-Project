@@ -73,7 +73,7 @@ request.setAttribute("codeResult", codeResult);
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>boxoffice</title>
-	<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<script src=" http://www.kobis.or.kr/kobisopenapi/webservice/soap/boxoffice" type="text/javascript"></script>
 	<script type="text/javascript" src='js/jquery-1.8.2.min.js'></script>
 	<script type="text/javascript">

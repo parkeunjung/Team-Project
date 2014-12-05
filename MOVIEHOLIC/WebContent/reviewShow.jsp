@@ -31,14 +31,19 @@
 	int startPos = (pageNo - 1)*numInPage;
 	int numItems,numPages;
 	// Request로 ID가 있는지 확인
-	String m_name="";
+	int id = 0;
 	try {
-		m_name = (request.getParameter("m_name"));
-		m_name = new String(m_name.getBytes("8859_1"), "UTF-8");
+		id = Integer.parseInt(request.getParameter("id"));
 	} catch (Exception e) {
 	}
 
-	
+	String Image="";
+	try{
+		Image=Integer.parseString(request.getParameter("image"));
+		Image = new String(image.getBytes("8859_1"),"UTF-8");
+	}
+
+	if (id > 0) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 
@@ -48,9 +53,9 @@
 
 			// 질의 준비
 			stmt = conn
-					.prepareStatement("SELECT * FROM reviews WHERE M_name = "+"m_name");
-			
-
+					.prepareStatement("SELECT * FROM reviews WHERE image = ?");
+			stmt.setString(1,image);
+	
 			// 수행
 			rs = stmt.executeQuery();
 
@@ -68,7 +73,7 @@
 		  if (stmt != null) try{stmt.close();} catch(SQLException e) {}
 		  if (conn != null) try{conn.close();} catch(SQLException e) {}
 		    }
-
+	}
 %>
 
 <!DOCTYPE html>
@@ -76,14 +81,14 @@
 <head>
 <meta charset="UTF-8">
 <title>평론가평보기</title>
-	<link href="./stylesheets/main.css" rel="stylesheet">
-	<script src="./js/jquery-1.8.2.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
 </head>
 <body>
 <div class="wrap">
-<jsp:include page="./Share/Header.jsp"/>
+<jsp:include page="Share/Header.jsp"/>
 	<div class="container">
 		<%
  			if (errorMsg != null && errorMsg.length() > 0 ) {
@@ -100,10 +105,10 @@
 		</div>
 		<% } %>
 		<div class="form-group">
-			<a href="./review.jsp" class="btn btn-default">목록으로</a>
+			<a href="review.jsp" class="btn btn-default">목록으로</a>
 		</div>
 	</div>
 </div>
-<jsp:include page="./Share/footer.jsp"/>
+<jsp:include page="Share/footer.jsp"/>
 </body>
 </html>

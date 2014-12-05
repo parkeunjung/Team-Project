@@ -75,7 +75,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>register</title>
-	<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>
 <body>

@@ -16,7 +16,7 @@
 		pageNo = Integer.parseInt(request.getParameter("page"));
 	} catch (NumberFormatException ex){}
 	
-	int numInPage = 3 ;
+	int numInPage = 2 ;
 	int startPos = (pageNo - 1)*numInPage;
 	int numItems,numPages;
 %>
@@ -26,7 +26,7 @@
 <head>
 <meta charset="UTF-8">
 <title>review</title>
-	<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>
 
@@ -74,7 +74,7 @@
 			<tbody>
 			<% while(rs.next()) { %>
 				<tr>
-					<td><a href="directorEdit/directorShow.jsp?id=<%=rs.getInt("id")%>"><img src="directorImg/<%=rs.getString("image")%>"></a></td>
+					<td><a href="directorShow.jsp?id=<%=rs.getInt("id")%>"><img src="directorImg/<%=rs.getString("image")%>"></a></td>
 				</tr>
 				<%} %>
 			</tbody>

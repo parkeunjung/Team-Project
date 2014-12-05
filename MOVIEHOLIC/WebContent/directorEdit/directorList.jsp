@@ -25,16 +25,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>manage member</title>
-
+<title>평론가평 목록</title>
 	<link href="../css/main.css" rel="stylesheet" type="text/css">
+	<link href="../css/manage.css" rel="stylesheet">
 	<script src="../js/jquery-1.8.2.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
-	<link href="../css/manage.css" rel="stylesheet">
 
 </head>
 <body>
 <div class="wrap">
+	<div class="container">	
 	<%
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -44,8 +44,8 @@
 
 		stmt = conn.createStatement();
 
-		// reviews 테이블: review 수 페이지수 개산
-		rs = stmt.executeQuery("SELECT COUNT(*) FROM members");
+		// directors 테이블: director 수 페이지수 개산
+		rs = stmt.executeQuery("SELECT COUNT(*) FROM directors");
 		rs.next();
 		numItems = rs.getInt(1);
 		numPages = (int) Math.ceil((double) numItems
@@ -53,10 +53,10 @@
 		rs.close();
 		stmt.close();
 
-		// reviews 테이블 SELECT
+		// directors 테이블 SELECT
 		stmt = conn.createStatement();
 		rs = stmt
-				.executeQuery("SELECT * FROM members ORDER BY usernumber LIMIT "
+				.executeQuery("SELECT * FROM directors ORDER BY name LIMIT "
 						+ startPos + ", " + numInPage);
 	%>
 	
@@ -74,33 +74,27 @@
 		<table class="table table-bordered table-stripped">
 			<thead>
 				<tr>
-					<th>USERNUMBER</th>
-					<th>USERID</th>
-					<th>USERNAME</th>
-					
+					<th>감독명</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 			<% while(rs.next()) { %>
 				<tr>
-					<td><%=rs.getString("usernumber")%></td>
-					<td><%=rs.getString("userid")%></td>
 					<td><%=rs.getString("name")%></td>
-					<td> <a href="#"
+					<td><a href="directorwWrite.jsp?id=<%=rs.getInt("id")%>"
+						class="btn btn-xs">수정</a> <a href="#"
 						class="btn btn-xs btn-danger" data-action="delete"
-						data-id="<%=rs.getInt("usernumber")%>">삭제</a></td>
+						data-id="<%=rs.getInt("id")%>">삭제</a></td>
 				</tr>
 				<%} %>
 			</tbody>
 		</table>
 	
-	
 	<nav class="pagination_centered">
 		<div class ="back">
-			<a href="index_manager.jsp">back</a>
+			<a href="../manager/index_manager.jsp">back</a>
 		</div>
-	
 			<ul class="pagination">
 				<%
 					// 페이지 네비게이션을 위한 준비
@@ -120,7 +114,7 @@
 				<%
 					} else {
 				%>
-				<li><a href="manabe_members.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
+				<li><a href="directorList.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
 				<%
 					}
 
@@ -129,7 +123,7 @@
 						for (int i = startPageNo; i <= endPageNo; i++) {
 							className = (i == pageNo) ? "active" : "";
 							out.println("<li class='" + className + "'>");
-							out.println("<a href='manage_members.jsp?page=" + i + "'>" + i
+							out.println("<a href='directorList.jsp?page=" + i + "'>" + i
 									+ "</a>");
 							out.println("</li>");
 						}
@@ -141,7 +135,7 @@
 				<%
 					} else {
 				%>
-				<li><a href="manage_members.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
+				<li><a href="directorList.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
 				<%
 					}
 				%>
@@ -160,14 +154,18 @@
 				if (conn != null) try {conn.close();} catch (SQLException e) {}
 			}
 		%>
+		<div class="form-group">
+			<a href="directorWrite.jsp" class="btn btn-primary">글쓰기</a>
+		</div>
 	
 	</div>
+</div>
 </body>
 <script>
 	$(function() {
 		$("a[data-action='delete']").click(function() {
 			if (confirm("정말로 삭제하시겠습니까?")) {
-				location = 'memberDelete.jsp?id=' + $(this).attr('data-id');
+				location = 'directorDelete.jsp?id=' + $(this).attr('data-id');
 			}
 			return false;
 		});

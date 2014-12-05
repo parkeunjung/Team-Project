@@ -27,9 +27,7 @@
 <head>
 <meta charset="UTF-8">
 <title>review</title>
-	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
-
-	<link href="stylesheets/main.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>
 
@@ -58,7 +56,7 @@
 		// reviews 테이블 SELECT
 		stmt = conn.createStatement();
 		rs = stmt
-				.executeQuery("SELECT * FROM reviews ORDER BY M_name LIMIT "
+				.executeQuery("SELECT * FROM reviews ORDER BY image LIMIT "
 						+ startPos + ", " + numInPage);
 	%>
 		<div class="content">
@@ -68,7 +66,7 @@
 				<tr>
 
 				<% while(rs.next()) { %>
-					<td><a href="reviewShow.jsp?m_name=<%=rs.getString("m_name")%>"><img src="MoviePoster/<%=rs.getString("image")%>.PNG"></a></th>
+					<td><a href="reviewShow.jsp?image=<%=rs.getString("Image")%>"><img src="MoviePoster/<%=rs.getString("image")%>.PNG"></a></td>
 				<%} %>
 				</tr>
 			</tbody>
