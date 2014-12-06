@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 		pageEncoding="UTF-8" import="java.util.*" import="java.sql.*"
 		%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="java.io.File"%>
+<%@page import="java.io.IOException"%>
+
 		
 <%
 	Connection conn = null;
@@ -12,12 +17,31 @@
 	String dbPassword = "a12345";
 	
 	request.setCharacterEncoding("utf-8");
-	String name = request.getParameter("name");
-	String birth = request.getParameter("birth");
-	String debut = request.getParameter("debut");
-	String award = request.getParameter("award");
-	String famous = request.getParameter("famous");
-	String image = request.getParameter("image");
+	String name = "";
+	String birth = "";
+	String debut = "";
+	String award = "";
+	String famous = "";
+	String imagename ="";
+	String imagepath="";
+	
+	
+	String path = application.getRealPath("/upload");
+	try{
+	MultipartRequest mr = new MultipartRequest(
+			request, path, 1024*1024*5, "utf-8", 
+			new DefaultFileRenamePolicy());
+	
+	name = mr.getParameter("name");
+	birth = mr.getParameter("birth");
+	award = mr.getParameter("award");
+	famous = mr.getParameter("famous");		
+	debut = mr.getParameter("debut");		
+	imagename = mr.getFilesystemName("image"); 
+	imagepath = path + "/" + imagename;
+    }catch(IOException e){
+       out.print("<h2>IOException이 발생했습니다 <h2>");
+    }
 	
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
@@ -37,7 +61,7 @@
 	if (famous == null || famous.trim().length() == 0) {
 		errorMsgs.add("데뷔작을 반드시 입력해주세요.");
 	}
-	if (image == null || image.trim().length() == 0) {
+	if (imagename == null || imagename.trim().length() == 0) {
 		errorMsgs.add("이미지를 반드시 입력해주세요.");
 	}
 	
@@ -45,15 +69,16 @@
 		try {
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
-					"INSERT INTO directors(name,birth,debut,award,famous,image) " +
-					"VALUES(?, ?, ?, ?, ?, ?)"
+					"INSERT INTO directors(name,birth,debut,award,famous,imagename,imagepath) " +
+					"VALUES(?, ?, ?, ?, ?, ?,?)"
 					);
 			stmt.setString(1, name);
 			stmt.setString(2, birth);
 			stmt.setString(3, debut);
 			stmt.setString(4, award);
 			stmt.setString(5, famous);
-			stmt.setString(6, image);
+			stmt.setString(6, imagename);
+			stmt.setString(7, imagepath);
 			
 			result = stmt.executeUpdate();
 			if (result != 1) {
@@ -81,8 +106,7 @@
 </head>
 <body>
 <div class="wrap">
-<jsp:include page="../Share/Header.jsp"/>
-	<div class="container">
+	<div class="content">
 	<% if (errorMsgs.size() > 0) { %>
  			<div class="alert alert-danger">
  				<h3>Errors:</h3>
@@ -97,7 +121,7 @@
 		 	</div>
 	 	<% } else if (result == 1) { %>
 	 		<div class="alert alert-success">
-	 			<b><%= name %></b>님 등록해주셔서 감사합니다.
+	 			<b><%= name %></b>감독 정보 등록완료.
 	 		</div>
 		 	<div class="form-group">
 		 		<a href="directorList.jsp" class="btn">목록으로</a>

@@ -34,7 +34,7 @@
 </head>
 <body>
 <div class="wrap">
-	<div class="container">	
+	<div class="content">	
 	<%
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -61,43 +61,41 @@
 	%>
 	
 	<div class="row">
-			<div class="col-md-12 page-info">
-				<div class="pull-left">
-					Total <b><%=numItems%></b> users
-				</div>
-				<div class="pull-right">
-					<b><%=pageNo%></b> page / total <b><%=numPages%></b> pages
-				</div>
-			</div>
-		</div>
-		
-		<table class="table table-bordered table-stripped">
-			<thead>
-				<tr>
-					<th>영화이름</th>
-					<th>평론가명</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
+			<div class="pull-left">
+			Total <b><%=numItems%></b> board
+	</div>
+	
+	<div class="list">
+			<table border="1">
+					<tr>
+						<th> MOVIETITLE </th>
+						<th> CRITICNAME </th>
+						
+						
+					</tr>
 			<% while(rs.next()) { %>
 				<tr>
 					<td><%=rs.getString("M_name")%></td>
 					<td><%=rs.getString("C_name")%></td>
-					<td><a href="reviewWrite.jsp?id=<%=rs.getInt("id")%>"
-						class="btn btn-xs">수정</a> <a href="#"
+					
+					
+					<td><a href="reviewwWrite.jsp?id=<%=rs.getInt("id")%>"
+						class="btn btn-xs">수정</a></td>
+					<td> <a href="#"
 						class="btn btn-xs btn-danger" data-action="delete"
 						data-id="<%=rs.getInt("id")%>">삭제</a></td>
 				</tr>
 				<%} %>
 			</tbody>
 		</table>
+		
+	
+	
+		
 	
 	<nav class="pagination_centered">
-		<div class ="back">
-			<a href="../manager/index_manager.jsp">back</a>
-		</div>
-			<ul class="pagination">
+			<table class="pagination">
+			<tr>
 				<%
 					// 페이지 네비게이션을 위한 준비
 						int startPageNo, endPageNo;
@@ -112,11 +110,11 @@
 						// 이전 페이지로
 						if (pageNo <= 1) {
 				%>
-				<li class="disabled"><a href="#">&laquo;</a></li>
+				<td class="disabled"><a href="#">&laquo;</a></td>
 				<%
 					} else {
 				%>
-				<li><a href="reviewList.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
+				<td><a href="review.jsp?page=<%=pageNo - 1%>">&laquo;</a></td>
 				<%
 					}
 
@@ -124,26 +122,25 @@
 						String className = "";
 						for (int i = startPageNo; i <= endPageNo; i++) {
 							className = (i == pageNo) ? "active" : "";
-							out.println("<li class='" + className + "'>");
+							out.println("<td class='" + className + "'>");
 							out.println("<a href='reviewList.jsp?page=" + i + "'>" + i
 									+ "</a>");
-							out.println("</li>");
+							out.println("</td>");
 						}
 
 						// 다음 페이지로
 						if (pageNo >= numPages) {
 				%>
-				<li class="disabled"><a href="#">&raquo;</a></li>
+				<td class="disabled"><a href="#">&raquo;</a></td>
 				<%
 					} else {
 				%>
-				<li><a href="reviewList.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
+				<td><a href="reviewList.jsp?page=<%=pageNo + 1%>">&raquo;</a></td>
 				<%
 					}
 				%>
-			</ul>
-		</nav>
-		
+				</tr>
+			</table>
 				<%
 			} catch (SQLException e) {
 				// SQL 에러의 경우 에러 메시지 출력
@@ -156,10 +153,16 @@
 				if (conn != null) try {conn.close();} catch (SQLException e) {}
 			}
 		%>
-		<div class="form-group">
+		<div class ="list_option">
+			<a href="../manager/index_manager.jsp">목록으로</a>
+		</div>
+		<div class="list_option">
 			<a href="reviewWrite.jsp" class="btn btn-primary">글쓰기</a>
 		</div>
+	</nav>
 	
+		
+		
 	</div>
 </div>
 </body>

@@ -21,6 +21,28 @@ img#movieposter{
 	width:180px;
 	height:220px;
 }
+div.director_image{
+	width:110px;
+	height:137px;
+	float:left;
+}
+div.director_image>img{
+	width:110px;
+	height:137px;
+}
+div.director_content{
+	width:500px;
+	height:137px;
+	float:left;
+	margin-left:20px;
+	border:2px solid;
+	
+}
+
+div.director_image{
+	border:2px solid;
+}
+
 
 
 
@@ -146,3 +168,11 @@ div.form-group{
 
 }
 
+div.review{
+	margin-bottom:20px;
+	border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background: #dddddd;
+    width: 300px;
+    border-radius: 25px;
+}

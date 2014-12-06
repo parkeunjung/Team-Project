@@ -28,7 +28,6 @@
  <div class="content">
 
 		  <form class="form-horizontal" action="<%="register.jsp"%>" method="post">
-			<fieldset>
 			  	<input type='hidden' name='id' value='id'>
 				<div class="form-group ">
 					<label class="col-sm-2 control-label" for="userid">ID</label>
@@ -69,7 +68,6 @@
 				<div class="form-group">
 						<input type="submit" class="btn btn-default btn-primary" value="sign up">
 				</div>
-			</fieldset>
 		  </form>
    
   </div>

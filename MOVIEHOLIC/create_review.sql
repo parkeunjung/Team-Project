@@ -8,6 +8,7 @@ CREATE TABLE reviews (
 	id INT AUTO_INCREMENT PRIMARY KEY, 
 	M_name VARCHAR(200) NOT NULL,
 	C_name VARCHAR(200) NOT NULL,
-  content TEXT NOT NULL,
-  image VARCHAR(200) NOT NULL
+  	content TEXT NOT NULL,
+  	image BLOB NOT NULL
+  	imbagename varchar(255) not null
 );

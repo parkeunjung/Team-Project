@@ -28,13 +28,14 @@
 <title>manage member</title>
 
 	<link href="../css/main.css" rel="stylesheet" type="text/css">
+	<link href="../css/manage.css" rel="stylesheet" type="text/css">
+	
 	<script src="../js/jquery-1.8.2.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<link href="../css/manage.css" rel="stylesheet">
 
 </head>
 <body>
 <div class="wrap">
+	<div class="content">
 	<%
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -61,32 +62,31 @@
 	%>
 	
 	<div class="row">
-			<div class="col-md-12 page-info">
-				<div class="pull-left">
-					Total <b><%=numItems%></b> users
-				</div>
-				<div class="pull-right">
-					<b><%=pageNo%></b> page / total <b><%=numPages%></b> pages
-				</div>
+			<div >
+				<table>
+					<tr>
+						<th>Total </th>
+						<th><%=numItems%></th>
+						<th> users</th>
+					</tr>
+				</table>
 			</div>
 		</div>
 		
-		<table class="table table-bordered table-stripped">
-			<thead>
-				<tr>
-					<th>USERNUMBER</th>
-					<th>USERID</th>
-					<th>USERNAME</th>
-					
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
+		<div class="list">
+			<table border="1">
+					<tr>
+						<th> USERID </th>
+						<th> USERNAME </th>
+						<th> USEREMAIL </th>
+						
+					</tr>
 			<% while(rs.next()) { %>
 				<tr>
-					<td><%=rs.getString("usernumber")%></td>
 					<td><%=rs.getString("userid")%></td>
 					<td><%=rs.getString("name")%></td>
+					<td><%=rs.getString("email")%></td>
+					
 					<td> <a href="#"
 						class="btn btn-xs btn-danger" data-action="delete"
 						data-id="<%=rs.getInt("usernumber")%>">삭제</a></td>
@@ -96,12 +96,10 @@
 		</table>
 	
 	
+
 	<nav class="pagination_centered">
-		<div class ="back">
-			<a href="index_manager.jsp">back</a>
-		</div>
-	
-			<ul class="pagination">
+			<table class="pagination">
+			<tr>
 				<%
 					// 페이지 네비게이션을 위한 준비
 						int startPageNo, endPageNo;
@@ -116,11 +114,11 @@
 						// 이전 페이지로
 						if (pageNo <= 1) {
 				%>
-				<li class="disabled"><a href="#">&laquo;</a></li>
+				<td class="disabled"><a href="#">&laquo;</a></td>
 				<%
 					} else {
 				%>
-				<li><a href="manabe_members.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
+				<td><a href="manabe_members.jsp?page=<%=pageNo - 1%>">&laquo;</a></td>
 				<%
 					}
 
@@ -128,24 +126,28 @@
 						String className = "";
 						for (int i = startPageNo; i <= endPageNo; i++) {
 							className = (i == pageNo) ? "active" : "";
-							out.println("<li class='" + className + "'>");
+							out.println("<td class='" + className + "'>");
 							out.println("<a href='manage_members.jsp?page=" + i + "'>" + i
 									+ "</a>");
-							out.println("</li>");
+							out.println("</td>");
 						}
 
 						// 다음 페이지로
 						if (pageNo >= numPages) {
 				%>
-				<li class="disabled"><a href="#">&raquo;</a></li>
+				<td class="disabled"><a href="#">&raquo;</a></td>
 				<%
 					} else {
 				%>
-				<li><a href="manage_members.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
+				<td><a href="manage_members.jsp?page=<%=pageNo + 1%>">&raquo;</a></td>
 				<%
 					}
 				%>
-			</ul>
+				</tr>
+			</table>
+			<div class ="list_option">
+			<a href="index_manager.jsp">목록으로</a>
+			</div>
 		</nav>
 		
 				<%
@@ -160,8 +162,9 @@
 				if (conn != null) try {conn.close();} catch (SQLException e) {}
 			}
 		%>
-	
+		</div>	
 	</div>
+</div>
 </body>
 <script>
 	$(function() {

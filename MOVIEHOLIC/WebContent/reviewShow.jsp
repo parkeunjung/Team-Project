@@ -79,6 +79,7 @@
 					%>
 					<div class ="review">
 						평론가 :<%=C_name %>
+						<br>
 						평론가 평: <%=content %>
 					</div>
 					<% 

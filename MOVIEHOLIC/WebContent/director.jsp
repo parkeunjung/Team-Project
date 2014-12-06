@@ -16,7 +16,7 @@
 		pageNo = Integer.parseInt(request.getParameter("page"));
 	} catch (NumberFormatException ex){}
 	
-	int numInPage = 2 ;
+	int numInPage = 3 ;
 	int startPos = (pageNo - 1)*numInPage;
 	int numItems,numPages;
 %>
@@ -25,7 +25,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>review</title>
+<title>director</title>
 	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>
@@ -33,7 +33,7 @@
 <body>
 	<div class="wrap">
 		<jsp:include page="Share/Header.jsp" />
-			<div class="container">
+			<div class="content">
 	<%
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -55,33 +55,50 @@
 		// reviews 테이블 SELECT
 		stmt = conn.createStatement();
 		rs = stmt
-				.executeQuery("SELECT * FROM directors ORDER BY name LIMIT "
+				.executeQuery("SELECT * FROM directors ORDER BY id LIMIT "
 						+ startPos + ", " + numInPage);
 	%>
-	
-	<div class="row">
-			<div class="col-md-12 page-info">
-				<div class="pull-left">
-					Total <b><%=numItems%></b> users
-				</div>
-				<div class="pull-right">
-					<b><%=pageNo%></b> page / total <b><%=numPages%></b> pages
-				</div>
-			</div>
-		</div>
 		
+			
+		<div id="directortable">
 		<table class="table table-bordered table-stripped">
 			<tbody>
-			<% while(rs.next()) { %>
 				<tr>
-					<td><a href="directorShow.jsp?id=<%=rs.getInt("id")%>"><img src="directorImg/<%=rs.getString("image")%>"></a></td>
-				</tr>
-				<%} %>
+
+				<% while(rs.next()) { 
+					String name= rs.getString("name");
+					String birth= rs.getString("birth");
+					String debut= rs.getString("debut");
+					String award= rs.getString("award");
+					String famous= rs.getString("famous");
+					String imagename=rs.getString("imagename");
+
+				%>
+						<tr><td>
+						<div class="director_image">
+						<img src="upload/<%=imagename%>" id="directorimage">
+						</div>
+						<div class="director_content">
+						<ul>
+						<li><b>이름:</b> <%=name %></li>
+						<li><b>출생:</b> <%=birth %></li>
+						<li><b>데뷔작:</b> <%=debut %></li>
+						<li><b>수상작:</b> <%=award %></li>
+						<li><b>대표작:</b> <%=famous %></li>						
+						</ul>
+						</div>
+						</td>
+						</tr>
+				<%}	%>
 			</tbody>
 		</table>
+		</div>
+
 	
 	<nav class="pagination_centered">
-			<ul class="pagination">
+			<table class="pagination">
+					<tr>
+
 				<%
 					// 페이지 네비게이션을 위한 준비
 						int startPageNo, endPageNo;
@@ -96,11 +113,11 @@
 						// 이전 페이지로
 						if (pageNo <= 1) {
 				%>
-				<li class="disabled"><a href="#">&laquo;</a></li>
+				<td class="disabled"><a href="#">&laquo;</a></td>
 				<%
 					} else {
 				%>
-				<li><a href="director.jsp?page=<%=pageNo - 1%>">&laquo;</a></li>
+				<td><a href="review.jsp?page=<%=pageNo - 1%>">&laquo;</a></td>
 				<%
 					}
 
@@ -108,25 +125,26 @@
 						String className = "";
 						for (int i = startPageNo; i <= endPageNo; i++) {
 							className = (i == pageNo) ? "active" : "";
-							out.println("<li class='" + className + "'>");
-							out.println("<a href='reviewList.jsp?page=" + i + "'>" + i
+							out.println("<td class='" + className + "'>");
+							out.println("<a href='director.jsp?page=" + i + "'>" + i
 									+ "</a>");
-							out.println("</li>");
+							out.println("</td>");
 						}
 
 						// 다음 페이지로
 						if (pageNo >= numPages) {
 				%>
-				<li class="disabled"><a href="#">&raquo;</a></li>
+				<td class="disabled"><a href="#">&raquo;</a></td>
 				<%
 					} else {
 				%>
-				<li><a href="director.jsp?page=<%=pageNo + 1%>">&raquo;</a></li>
+				<td><a href="review.jsp?page=<%=pageNo + 1%>">&raquo;</a></td>
 				<%
 					}
 				%>
-			</ul>
-		</nav>
+			</tr>
+			</table>
+			</nav>
 		
 				<%
 			} catch (SQLException e) {

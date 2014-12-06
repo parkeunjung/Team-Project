@@ -34,7 +34,6 @@
 
 	  
 		  <form class="form-horizontal" action="<%="update.jsp"%>" method="post">
-			<fieldset>
 			  	
 				<div class="form-group ">
 					<label class="col-sm-2 control-label" for="userid">ID</label>
@@ -78,7 +77,6 @@
 				<div class="form-group">
 						<input type="submit" class="btn btn-default btn-primary" value="update">
 				</div>
-			</fieldset>
 		  </form>
    
   </div>
