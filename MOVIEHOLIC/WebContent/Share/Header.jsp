@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@page import="java.util.ArrayList"%>
-   
+	pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+
 
 <%
 
@@ -21,36 +21,36 @@
 		
 	}
 %>
-	<!--  Navbar -->
+<!--  Navbar -->
 
-	
-	<div id="top">
-	<div id="title">
-	<a href = "index.jsp"><img src = "./images/logo.png"></a>
-	</div>
-	<div id="memberbar">			
 
-	<%	if (flag) { %>
+<div id="top">
+	<div id="memberbar">
+
+		<%	if (flag) { %>
 
 		<%	out.println("<p id='name'>"+username+"</p>"); %>
 		<div class="memberbar_inner">
-		<a href = './signout.jsp'>sign out</a>
-		<a href = './mypage.jsp'>my page</a>
+			<a href='./signout.jsp'>sign out</a> <a href='./mypage.jsp'>my
+				page</a>
 		</div>
-	<% } else{ %>
+		<% } else{ %>
 		<div class="memberbar_inner">
-		<br><br>
-		<a href ='./signup.jsp'>sign up</a>
-		<a href ='./signin.jsp'>sign in</a>
+			<br>
+			<br> <a href='./signup.jsp'>sign up</a> <a href='./signin.jsp'>sign
+				in</a>
 		</div>
-	<% }%>
-	</div>	
-
+		<% }%>
 	</div>
-			
-		<div id="menubar" style="float:left">
-					<ul>
-						<%
+
+</div>
+<div class="left">
+	<div id="title">
+		<a href="index.jsp"><img src="./images/logo.png"></a>
+	</div>
+	<div id="menubar" style="float: left">
+		<ul>
+			<%
 							for(String menuItem[] : navbarImages) {
 								if(currentMenu != null ) {
 									out.println("<li class = 'active'>");
@@ -64,12 +64,11 @@
 									out.println("</li>");
 							}
 						%>
-					</ul>
-				</div>
-			
-			
-		
-				
-			
-				
-	
+		</ul>
+	</div>
+</div>
+
+
+
+
+

@@ -1,6 +1,12 @@
+<%@page import="java.io.File"%>
+<%@page import="java.io.IOException"%>
+
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 		pageEncoding="UTF-8" import="java.util.*" import="java.sql.*"
-		%>
+%>
 		
 <%
 	Connection conn = null;
@@ -10,13 +16,27 @@
 	String dbUrl = "jdbc:mysql://localhost:3306/movieholic";
 	String dbUser = "kbc13";;
 	String dbPassword = "a12345";
+	String M_name="";
+	String C_name="";
+	String content="";
+	String imagename ="";
+	String m_fileFullPath="";
 	
-	request.setCharacterEncoding("utf-8");
-	String M_name = request.getParameter("M_name");
-	String C_name = request.getParameter("C_name");
-	String content = request.getParameter("content");
-	String image = request.getParameter("image");
 	
+	String path = application.getRealPath("/upload");
+	try{
+	MultipartRequest mr = new MultipartRequest(
+			request, path, 1024*1024*5, "utf-8", 
+			new DefaultFileRenamePolicy());
+	
+	M_name = mr.getParameter("M_name");
+	C_name = mr.getParameter("C_name");
+	content = mr.getParameter("content");		
+	imagename = mr.getFilesystemName("image"); 
+	m_fileFullPath = path + "/" + imagename;
+    }catch(IOException e){
+       out.print("<h2>IOException이 발생했습니다 <h2>");
+    }
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
 	
@@ -29,23 +49,27 @@
 	if (content == null || content.trim().length() == 0) {
 		errorMsgs.add("내용을 반드시 입력해주세요.");
 	}
-	if (image == null || image.trim().length() == 0) {
-		errorMsgs.add("이미지 이름을 반드시 입력해주세요.");
+	if (imagename == null || imagename.trim().length() == 0) {
+		errorMsgs.add("이미지를 반드시 첨부해주세요.");
 	}
 	
 	if (errorMsgs.size() == 0) {
+		
 		try {
 			conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 			stmt = conn.prepareStatement(
-					"INSERT INTO reviews(M_name,C_name,content,image) " +
-					"VALUES(?, ?, ?, ?)"
+					"INSERT INTO reviews(M_name,C_name,content,image,imagename) " +
+					"VALUES(?, ?, ?, ?,?)"
 					);
 			stmt.setString(1, M_name);
 			stmt.setString(2, C_name);
 			stmt.setString(3, content);
-			stmt.setString(4, image);
-			
+			stmt.setString(4, m_fileFullPath);
+			stmt.setString(5, imagename);
+
 			result = stmt.executeUpdate();
+
+		
 			if (result != 1) {
 				errorMsgs.add("등록에 실패하였습니다.");
 			}
@@ -66,8 +90,7 @@
 <head>
 <meta charset="UTF-8">
 <title>평론가평 등록</title>
-	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
-	<link href="../stylesheets/base.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet" type="text/css">
 	<script src="../js/jquery-1.8.2.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 </head>
@@ -92,7 +115,7 @@
 	 			<b><%= M_name %></b>의 평론이 등록되었습니다.
 	 		</div>
 		 	<div class="form-group">
-		 		<a href="reviewWrite.jsp" class="btn">목록으로</a>
+		 		<a href="reviewList.jsp" class="btn">목록으로</a>
 		 	</div>
 	 		
 	 	<%}%>

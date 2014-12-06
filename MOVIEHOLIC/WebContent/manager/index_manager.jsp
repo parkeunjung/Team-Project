@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<link href="../stylesheets/manage.css" rel="stylesheet">
+<link href="../css/manage.css" rel="stylesheet">
 
 <title>manager page</title>
 </head>

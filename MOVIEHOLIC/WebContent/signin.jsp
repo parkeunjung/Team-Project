@@ -71,7 +71,7 @@
 <head>
 <meta charset="UTF-8">
 <title>signin</title>
-<link href="stylesheets/main.css" rel="stylesheet" type="text/css">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>

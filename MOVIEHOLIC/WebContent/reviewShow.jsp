@@ -20,7 +20,7 @@
 	String M_name = "";
 	String C_name = "";
 	String content = "";
-	String image="";
+	String imagename="";
 	int pageNo = 1;
 	
 	try {
@@ -30,80 +30,75 @@
 	int numInPage = 9 ;
 	int startPos = (pageNo - 1)*numInPage;
 	int numItems,numPages;
-	// Request로 ID가 있는지 확인
-	String m_name="";
+
+	String m_name = "";
+
 	try {
-		m_name = (request.getParameter("m_name"));
-		m_name = new String(m_name.getBytes("8859_1"), "UTF-8");
+		m_name = (request.getParameter("M_name"));
 	} catch (Exception e) {
 	}
 
 	
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
 
-			// DB 접속
-			conn = DriverManager.getConnection(dbUrl, dbUser,
-					dbPassword);
-
-			// 질의 준비
-			stmt = conn
-					.prepareStatement("SELECT * FROM reviews WHERE M_name = "+"m_name");
-			
-
-			// 수행
-			rs = stmt.executeQuery();
-
-			if (rs.next()) {
-				M_name = rs.getString("M_name");			
-				C_name = rs.getString("C_name");
-				content = rs.getString("content");
-				image = rs.getString("image");
-			}
-		} catch (SQLException e) {
-			errorMsg = "SQL 에러: " + e.getMessage();
-		} finally {
-			// 무슨 일이 있어도 리소스를 제대로 종료
-		  if (rs != null) try{rs.close();} catch(SQLException e) {}
-		  if (stmt != null) try{stmt.close();} catch(SQLException e) {}
-		  if (conn != null) try{conn.close();} catch(SQLException e) {}
-		    }
-
-%>
+	%>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>평론가평보기</title>
-	<link href="./stylesheets/main.css" rel="stylesheet">
-	<script src="./js/jquery-1.8.2.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
+	<link href="css/main.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
 </head>
 <body>
 <div class="wrap">
-<jsp:include page="./Share/Header.jsp"/>
+<jsp:include page="Share/Header.jsp"/>
 	<div class="container">
 		<%
- 			if (errorMsg != null && errorMsg.length() > 0 ) {
-    		// SQL 에러의 경우 에러 메시지 출력
-    		out.print("<div class='alert'>" + errorMsg + "</div>");
- 			} else {
- 		%>
-			<div>
-			<h3><%=M_name%></h3>
-			<ul>
-				<li><%=C_name %></li>
-				<li>내      용 : <%=content %></li>
-			</ul>
-		</div>
-		<% } %>
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+
+				// DB 접속
+				conn = DriverManager.getConnection(dbUrl, dbUser,
+						dbPassword);
+
+				// 질의 준비
+				stmt = conn
+						.prepareStatement("SELECT * FROM reviews WHERE M_name = ?");
+				stmt.setString(1,m_name);
+		
+				// 수행
+				rs = stmt.executeQuery();
+
+				while(rs.next()) {
+					M_name = rs.getString("M_name");			
+					C_name = rs.getString("C_name");
+					content = rs.getString("content");
+					%>
+					<div class ="review">
+						평론가 :<%=C_name %>
+						평론가 평: <%=content %>
+					</div>
+					<% 
+				}
+			} catch (SQLException e) {
+				errorMsg = "SQL 에러: " + e.getMessage();
+			} finally {
+				// 무슨 일이 있어도 리소스를 제대로 종료
+			  if (rs != null) try{rs.close();} catch(SQLException e) {}
+			  if (stmt != null) try{stmt.close();} catch(SQLException e) {}
+			  if (conn != null) try{conn.close();} catch(SQLException e) {}
+			    }
+		
+
+ 	%>		
 		<div class="form-group">
-			<a href="./review.jsp" class="btn btn-default">목록으로</a>
+			<a href="review.jsp" class="btn btn-default">목록으로</a>
 		</div>
 	</div>
 </div>
-<jsp:include page="./Share/footer.jsp"/>
+<jsp:include page="Share/footer.jsp"/>
 </body>
 </html>

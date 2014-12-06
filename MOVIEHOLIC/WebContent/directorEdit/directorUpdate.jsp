@@ -94,8 +94,7 @@
 <head>
 <meta charset="UTF-8">
 <title>영화감독 수정</title>
-	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
-	<link href="../stylesheets/base.css" rel="stylesheet">
+	<link href="../css/main.css" rel="stylesheet" type="text/css">
 	<script src="../js/jquery-1.8.2.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 </head>

@@ -27,9 +27,7 @@
 <head>
 <meta charset="UTF-8">
 <title>review</title>
-	<link href="../stylesheets/bootstrap.min.css" rel="stylesheet">
-
-	<link href="stylesheets/main.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet" type="text/css">
 	<script src="js/jquery-1.8.2.min.js"></script>
 </head>
 
@@ -38,7 +36,12 @@
 	<jsp:include page="Share/Header.jsp"/>
 	
 	<%
+		String m_name="";
+		String errorMsg = null;
+
+		List<String> movielist = new ArrayList<String>();
 		try {
+
 		Class.forName("com.mysql.jdbc.Driver");
 
 		// DB 접속
@@ -57,8 +60,7 @@
 
 		// reviews 테이블 SELECT
 		stmt = conn.createStatement();
-		rs = stmt
-				.executeQuery("SELECT * FROM reviews ORDER BY M_name LIMIT "
+		rs = stmt.executeQuery("SELECT * FROM reviews ORDER BY image LIMIT "
 						+ startPos + ", " + numInPage);
 	%>
 		<div class="content">
@@ -67,9 +69,13 @@
 			<tbody>
 				<tr>
 
-				<% while(rs.next()) { %>
-					<td><a href="reviewShow.jsp?m_name=<%=rs.getString("m_name")%>"><img src="MoviePoster/<%=rs.getString("image")%>.PNG"></a></th>
-				<%} %>
+				<% while(rs.next()) { 
+					m_name=rs.getString("M_name");
+				%>
+						<td><a href="reviewShow.jsp?M_name=<%=m_name%>"><img src="upload/<%=rs.getString("imagename")%>" id="movieposter"></a></td>
+				<%			
+				}
+				%>
 				</tr>
 			</tbody>
 		</table>
