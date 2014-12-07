@@ -46,7 +46,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src=" http://www.kobis.or.kr/kobisopenapi/webservice/soap/movie" type="text/javascript"></script>
+
 <title>Insert title here</title>
+
 </head>
 <body>
 	<table border="1">

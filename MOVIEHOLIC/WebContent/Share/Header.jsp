@@ -28,8 +28,8 @@
 	<div id="memberbar">
 
 		<%	if (flag) { %>
-
-		<%	out.println("<p id='name'>"+username+"</p>"); %>
+		<br>
+		<%	out.println("<p class='name'>"+username+"</p>"); %>
 		<div class="memberbar_inner">
 			<a href='./signout.jsp'>sign out</a> <a href='./mypage.jsp'>my
 				page</a>

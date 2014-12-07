@@ -7,15 +7,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <script language="Javascript" type="text/javascript">
-
 var obj = {
-	apikey: "1498147838734fe59a8bce9b51ccc7d17fa6a53f",
-	init : function(){
-		obj.q = document.getElementById('query');
-		obj.b = document.getElementById('button');
-		obj.r = document.getElementById('result');
-		obj.b.onclick = obj.pingSearch;
-	},
+		apikey: "1498147838734fe59a8bce9b51ccc7d17fa6a53f",
+		init : function(){
+			obj.q = document.getElementById('query');
+			obj.b = document.getElementById('button');
+			obj.r = document.getElementById('result');
+			obj.b.onclick = obj.pingSearch;
+		},
 	
 	// 검색을 요청하는 함수 
 	pingSearch : function(){
@@ -54,18 +53,22 @@ var obj = {
 		return str;
 	}
 };
-window.onload = function(){
+button.onclick = function() {
 	obj.init();
 	obj.pingSearch();
+	alert("load");
+
 };
 
 </script>
 </head>
 <body>
   <div id="divSearch"> 
+ 	<form method="post"> 
    영화 검색 예제
     <input id="query" type="text"/>
     <input id="button" type="submit" value="검색"/>
+  	</form>
   </div>
   <div id="result"></div>
 </body>

@@ -68,7 +68,7 @@
 		%>
 		<div class="content">
 		<div id="reviewtable">
-		<table class=>
+		<table class= "review">
 			<tbody>
 				<tr>
 				<% while(rs.next()) { 
