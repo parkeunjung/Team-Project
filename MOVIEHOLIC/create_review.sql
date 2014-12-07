@@ -9,6 +9,6 @@ CREATE TABLE reviews (
 	M_name VARCHAR(200) NOT NULL,
 	C_name VARCHAR(200) NOT NULL,
   	content TEXT NOT NULL,
-  	image BLOB NOT NULL
+  	image BLOB NOT NULL,
   	imbagename varchar(255) not null
 );

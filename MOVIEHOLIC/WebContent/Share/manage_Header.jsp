@@ -6,7 +6,7 @@
 <%
 
 	String [][] navbarImages  = {{"Manage members","../manager/manage_members.jsp"},{"Manage director","../directorEdit/directorList.jsp"},{"Manage review","../reviewEdit/reviewList.jsp"}
-	,{"Manage filmaward","./filmaward.jsp"}};
+	,{"Manage filmaward","../awardEdit/awardList.jsp"}};
 
 
 	String currentMenu = request.getParameter("current");
