@@ -108,7 +108,7 @@
 <div class="wrap">
 	<div class="content">
 	<% if (errorMsgs.size() > 0) { %>
- 			<div class="alert alert-danger">
+ 			<div >
  				<h3>Errors:</h3>
  				<ul>
  					<% for(String msg: errorMsgs) { %>
@@ -120,7 +120,7 @@
 		 		<a onclick="history.back();" class="btn">뒤로 돌아가기</a>
 		 	</div>
 	 	<% } else if (result == 1) { %>
-	 		<div class="alert alert-success">
+	 		<div >
 	 			<b><%= name %></b>감독 정보 등록완료.
 	 		</div>
 		 	<div class="form-group">

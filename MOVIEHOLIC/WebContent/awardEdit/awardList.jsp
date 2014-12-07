@@ -27,8 +27,6 @@
 <title>영화제 list</title>
 	<link href="../css/main.css" rel="stylesheet" type="text/css">
 	<script src="../js/jquery-1.8.2.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-
 </head>
 <body>
 <div class="wrap">
@@ -70,6 +68,7 @@
 					<tr>
 						<th> AWARDNAME </th>
 						<th> AWARDYEAR </th>
+						<th> AWARDNAME </th>
 						<th></th>
 						
 					</tr>
@@ -77,6 +76,7 @@
 				<tr>
 					<td><%=rs.getString("title")%></td>
 					<td><%=rs.getString("year") %></td>
+					<td><%=rs.getString("award") %></td>
 					
 					<td><a href="awardWrite.jsp?id=<%=rs.getInt("id")%>"
 						class="btn btn-xs">수정</a></td>

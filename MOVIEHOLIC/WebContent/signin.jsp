@@ -24,8 +24,8 @@
 	String id = request.getParameter("id");	
 	String pwd = request.getParameter("pwd");
 	//관리자 아이디, 비밀번호
-	String managerid = "kbc13";
-	String managerpwd = "a12345";
+	String managerid = "";
+	String managerpwd = "";
 	int a =10;
 	boolean signin = false;
 	String actionurl ="";
@@ -34,7 +34,11 @@
 
 		//DB 접속
 		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
+		stmt = conn.prepareStatement("SELECT * FROM members where usernumber=1");
+		rs=stmt.executeQuery();
+		rs.next();
+		managerid=rs.getString("userid");
+		managerpwd=rs.getString("pwd");
 		//질의준비
 		stmt = conn
 				.prepareStatement("SELECT * FROM members ");		
@@ -58,13 +62,11 @@
 				signin = true;
 				actionurl="./index.jsp";
 				
-				break;
+				
 			}else if(managerid.equals(id)&& managerpwd.equals(pwd)){
 				actionurl="./manager/index_manager.jsp";
 				signin = true;
 				session.setAttribute("userName", "관리자");
-
-
 			}
 		}
 	} catch (SQLException e) {
@@ -88,7 +90,6 @@
 <body>
 <div class="wrap">
 	<jsp:include page="Share/Header.jsp"/>
-			
 			<%
 				if (request.getMethod() == "POST") {
 					if (id == null || pwd == null || id.length() == 0

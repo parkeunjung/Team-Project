@@ -15,10 +15,22 @@
 	<div class="wrap">
 	<jsp:include page="Share/Header.jsp"/>
 	<div class="content">
+	<img src="./images/indeximage.jpg" class="indeximage">
+	<img src="./images/indeximage2.jpg" class="indeximage">
+	<img src="./images/indeximage3.jpg" class="indeximage">
+	<img src="./images/indeximage4.jpg" class="indeximage">
+	<img src="./images/indeximage5.jpg" class="indeximage">
+	<img src="./images/indeximage6.png" class="indeximage">
+	<img src="./images/indeximage7.png" class="indeximage">
+	<img src="./images/indeximage8.png" class="indeximage">
+	<img src="./images/indeximage9.jpg" class="indeximage">
+	<img src="./images/indeximage10.jpg" class="indeximage">
+	<img src="./images/indeximage11.jpg" class="indeximage">
+	<img src="./images/indeximage12.jpg" class="indeximage">
+	
 		
 		
-		
-		</div>
+	</div>
 	
 	</div>
 	<jsp:include page="Share/footer.jsp" />

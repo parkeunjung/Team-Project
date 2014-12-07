@@ -8,6 +8,10 @@ div.review{
     width: 300px;
     border-radius: 25px;
 }
+img.indeximage{
+	width:180px;
+	height:160px;
+}
 
 /* header 부분*/
 
@@ -61,10 +65,11 @@ a{
 	text-decoration:none;
 }
 div.content{
+	width:800px;
 	float:left;
 	height:338px;
 	margin-top:80px;
-	margin-left:70px;
+	margin-left:40px;
 	font-family: 'Jeju Myeongjo', serif;
 	
 }
@@ -208,6 +213,15 @@ li{
 	
 }
 /****************/
+
+/*영화제수상작****/
+
+table#filmaward{
+	text-align:center;
+}
+div.award_content{
+	text-align:center;
+}
 
 
 <<<<<<< HEAD

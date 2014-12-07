@@ -7,12 +7,22 @@
 
 	
 	// 사용자 정보를 위한 변수 초기화
-	String name = "";
 	String birth = "";
 	String debut = "";
 	String award = "";
 	String famous = "";
 	String image = "";
+	String name="";
+	String d_name=null;
+	String actionurl="";
+	try {
+		d_name = (request.getParameter("name"));
+	} catch (Exception e) {}
+	if(d_name==null){
+		actionurl = "directorRegister.jsp?name=";
+	} else {
+		actionurl="directorUpdate.jsp?name="+d_name;
+	}
 %>
 		
 <!DOCTYPE html>
@@ -28,7 +38,7 @@
 	<div class="content">
 	
  <div>
-		  <form accept-charset="UTF-8" class="form-horizontal" action="directorRegister.jsp" method="post" enctype="multipart/form-data">
+		  <form accept-charset="UTF-8" class="form-horizontal" action=<%=actionurl%> method="post" enctype="multipart/form-data">
         <legend class="legend">영화감독 작성</legend>
 				<div class="form-group ">
 					<label class="col-sm-2 control-label" for="name">감독명</label>
@@ -71,8 +81,13 @@
 				</div>
 				
 				<div class="form-group">
-					<a href="directorList.jsp" class="col-sm-offset-2 btn btn-default">목록으로</a>
+					<%if(d_name==null){%>
 						<input type="submit" class="btn btn-default btn-primary" value="등록">
+					<%} else {%>
+						<input type="submit" class="btn btn-default btn-primary" value="수정">					
+					<% } %>
+						<a href="directorList.jsp" class="col-sm-offset-2 btn btn-default">목록으로</a>
+
 				</div>
 		  </form>
     </div>

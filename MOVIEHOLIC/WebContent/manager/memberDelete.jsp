@@ -54,14 +54,14 @@
 </head>
 <body>
 <div class="wrap">
-<div class="container">
+<div class="content">
 		<% if (errorMsg != null) { %>
-		<div class="alert alert-danger">
+		<div >
 			<h3>Errors:</h3>
 			<%= errorMsg %>
 		</div>
 		<% } else { %>
-		<div class="alert alert-success"> 삭제하였습니다.</div>
+		<div "> 삭제하였습니다.</div>
 		<%}%>
 		<div class="form-group">
 			<a href="manage_members.jsp" class="btn btn-default">back</a>

@@ -55,7 +55,7 @@
 <body>
 <div class="wrap">
 <jsp:include page="Share/Header.jsp"/>
-	<div class="content">
+	<div class="review_content">
 		<%
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
