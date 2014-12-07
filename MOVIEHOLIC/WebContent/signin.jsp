@@ -54,7 +54,6 @@
 			
 			if (userid.equals(id) && password.equals(pwd)) {
 				// 로그인 성공
-				
 				session.setAttribute("userId", userid);
 				session.setAttribute("userName", name);
 				session.setAttribute("userNumber", usernumber);
@@ -63,10 +62,11 @@
 				actionurl="./index.jsp";
 				
 				
-			}else if(managerid.equals(id)&& managerpwd.equals(pwd)){
+			 if(managerid.equals(id)&& managerpwd.equals(pwd)){
 				actionurl="./manager/index_manager.jsp";
 				signin = true;
 				session.setAttribute("userName", "관리자");
+				}
 			}
 		}
 	} catch (SQLException e) {
