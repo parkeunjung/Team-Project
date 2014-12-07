@@ -39,8 +39,6 @@
 		String m_name="";
 		String errorMsg = null;
 
-		List<String> movielist = new ArrayList<String>();
-
 		try {
 
 		Class.forName("com.mysql.jdbc.Driver");

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 session.invalidate();
-%>       
+%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +12,13 @@ session.invalidate();
 <body>
 <div class="wrap">
 <script type="text/javascript">
-location.assign("./index.jsp");
+
+	location.assign("../index.jsp");
+
+
+	location.assign("./index.jsp");
+
+
 </script>
 </div>
 </body>

@@ -28,13 +28,13 @@
 <title>manage member</title>
 
 	<link href="../css/main.css" rel="stylesheet" type="text/css">
-	<link href="../css/manage.css" rel="stylesheet" type="text/css">
 	
 	<script src="../js/jquery-1.8.2.min.js"></script>
 
 </head>
 <body>
 <div class="wrap">
+	<jsp:include page="../Share/manage_Header.jsp"/>
 	<div class="content">
 	<%
 		try {
@@ -145,9 +145,7 @@
 				%>
 				</tr>
 			</table>
-			<div class ="list_option">
-			<a href="index_manager.jsp">목록으로</a>
-			</div>
+			
 		</nav>
 		
 				<%

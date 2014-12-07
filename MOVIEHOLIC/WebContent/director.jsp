@@ -117,7 +117,7 @@
 				<%
 					} else {
 				%>
-				<td><a href="review.jsp?page=<%=pageNo - 1%>">&laquo;</a></td>
+				<td><a href="director.jsp?page=<%=pageNo - 1%>">&laquo;</a></td>
 				<%
 					}
 
@@ -138,7 +138,7 @@
 				<%
 					} else {
 				%>
-				<td><a href="review.jsp?page=<%=pageNo + 1%>">&raquo;</a></td>
+				<td><a href="director.jsp?page=<%=pageNo + 1%>">&raquo;</a></td>
 				<%
 					}
 				%>

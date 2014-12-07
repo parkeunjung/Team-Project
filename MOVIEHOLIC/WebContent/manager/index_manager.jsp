@@ -5,18 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="../css/main.css" rel="stylesheet" type="text/css">
-<link href="../css/manage.css" rel="stylesheet">
 
 <title>manager page</title>
 </head>
 <body>
 	<div class="wrap">
+	<jsp:include page="../Share/manage_Header.jsp"/>
 	<div class="content">
-	<div class="content_inner">
+	<div class="managepagemenu">
 		<ul id="list_managepage">
-		<li><a href="manage_members.jsp">· Manage members</a></li>
-		<li><a href="../directorEdit/directorList.jsp">· Manage director</a></li>
-		<li><a href="../reviewEdit/reviewList.jsp">· Manage review</a></li>
+		
 		</ul>
 	</div>
 	</div>

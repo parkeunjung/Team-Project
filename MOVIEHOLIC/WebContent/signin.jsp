@@ -23,9 +23,12 @@
 	//post
 	String id = request.getParameter("id");	
 	String pwd = request.getParameter("pwd");
+	//관리자 아이디, 비밀번호
+	String managerid = "kbc13";
+	String managerpwd = "a12345";
 	int a =10;
 	boolean signin = false;
-
+	String actionurl ="";
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
 
@@ -53,7 +56,15 @@
 				session.setAttribute("userNumber", usernumber);
 				session.setAttribute("userPwd",password);
 				signin = true;
+				actionurl="./index.jsp";
+				
 				break;
+			}else if(managerid.equals(id)&& managerpwd.equals(pwd)){
+				actionurl="./manager/index_manager.jsp";
+				signin = true;
+				session.setAttribute("userName", "관리자");
+
+
 			}
 		}
 	} catch (SQLException e) {
@@ -87,7 +98,7 @@
 			<%
 					} else if (signin) {
 						// 로그인 성공
-						response.sendRedirect("./index.jsp");
+						response.sendRedirect(actionurl);
 						
 					} else {
 			%>

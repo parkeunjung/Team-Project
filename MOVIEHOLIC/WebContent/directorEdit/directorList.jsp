@@ -27,13 +27,13 @@
 <meta charset="UTF-8">
 <title>감독 list</title>
 	<link href="../css/main.css" rel="stylesheet" type="text/css">
-	<link href="../css/manage.css" rel="stylesheet">
 	<script src="../js/jquery-1.8.2.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
 
 </head>
 <body>
 <div class="wrap">
+	<jsp:include page="../Share/manage_Header.jsp"/>
 	<div class="content">	
 	<%
 		try {
@@ -149,9 +149,7 @@
 				if (conn != null) try {conn.close();} catch (SQLException e) {}
 			}
 		%>
-		<div class ="list_option">
-			<a href="../manager/index_manager.jsp">목록으로</a>
-		</div>
+	
 		<div class="list_option">
 			<a href="directorWrite.jsp" class="btn btn-primary">글쓰기</a>
 		</div>
