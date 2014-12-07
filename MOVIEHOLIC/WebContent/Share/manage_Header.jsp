@@ -20,7 +20,8 @@
 
 <div id="top">
 	<div id="memberbar">
-		<p id='name'><%= username%></p> 
+		<br>
+		<p class='name'><%= username%></p> 
 		<div class="memberbar_inner">
 			<a href='../signout.jsp'>sign out</a>
 			</div>

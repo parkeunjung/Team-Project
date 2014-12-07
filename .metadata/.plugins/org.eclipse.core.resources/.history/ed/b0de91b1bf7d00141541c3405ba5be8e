@@ -1,0 +1,208 @@
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700);
+@import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+/* header 부분*/
+div.memberbar_inner{
+font-family: 'Yanone Kaffeesatz', sans-serif;	font-size:20px;
+width:1150px; margin-right:20px;
+margin-top:0px;
+}
+div#memberbar{
+	width:1150px; margin-right:20px; margin-top:30px;margin-bottom:0px;
+	text-align: right;
+	
+}
+p#name{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size:15px;
+	
+}
+div#top{
+	width:1200px;
+	height:80px;
+	margin:0px;
+	padding:0px;
+}
+div#title{
+	padding-left:20px;
+	width:300px;
+	height:262px;
+}
+div#menubar>ul>li{
+	width:150px;
+	padding:0px;
+	margin : 0px;
+}
+/***************/
+
+
+/* 공통 *********/
+html{
+	background-image:url("../images/background.jpg");
+	background-position:center center;
+	background-attachment:fixed;
+	background-size:cover;
+	font-size:10pt; font-family:�굹�닎怨좊뵓,留묒� 怨좊뵓,援대┝; color:666666;line-height:150%;
+}
+
+a{
+	color: black;
+	text-decoration:none;
+}
+div.content{
+	float:left;
+	height:338px;
+	margin-top:80px;
+	margin-left:70px;
+	font-family: 'Jeju Myeongjo', serif;
+	
+}
+
+div.wrap{
+
+	background-color:white;
+	width:1200px; height:700px;
+	margin: 0 auto;
+	margin-top:100px;
+	
+}
+
+ul{
+	list-style-type:none;
+}
+div.form-group{
+	color:black;
+	width:600px;
+	height:70px;
+	font-family: 'Jeju Myeongjo', serif;
+	font-size:18px;
+		
+
+}
+form.form-horizontal{
+	width:300px;
+}
+.alert-success{
+	color:black;
+	margin-top : -90px;
+	margin-left: 300px;
+	margin-right: 300px;
+	
+}
+/*************/
+
+/*director*****/
+
+div.director_image{
+	width:110px;
+	height:137px;
+	float:left;
+}
+div.director_image>img{
+	width:110px;
+	height:137px;
+}
+div.director_content{
+	width:500px;
+	height:137px;
+	float:left;
+	margin-left:20px;
+	border:2px solid;
+	
+}
+div.director_content>ul>li{
+	margin:0 px;	
+}
+
+div.director_image{
+	border:2px solid;
+}
+
+/**************/
+img#movieposter{
+	width:180px;
+	height:220px;
+}
+div.left{
+	float:left;
+}
+
+
+/*mypage*******/
+div#mypage_content{
+	width:600px;
+	hegith:200px;
+	margin-left: 150px;
+	margin-top : 20px;
+	font-size:18px;
+
+}
+div.mypage_content{
+	width:200px;
+	height:100px
+	margin: 0 auto;
+}
+/***************/
+/*관리자페이지*****/
+div#managepagemenu{
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size:30px;
+	
+}
+div#managepagemenu>ul>li{
+	margin:40px;
+}
+ul#list_managepage>li>a{
+	text-decoration:none;
+}
+div.form-group{
+width:600px;
+height:70px;
+font-family: 'Jeju Myeongjo', serif;
+font-size:20px;
+		
+}
+dib.list_option{
+	float:left;
+	font-size:30px;
+}
+
+div.pagination_centered{
+	float:left;
+}
+div.content_inner{
+	width:700px;
+	height:300px;
+	margin-top:70px;
+	color:white;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	font-size:60px;
+}
+div.content_inner>ul>li{
+	margin-top:50px;
+}
+div.list{
+	margin-top:50px;
+	font-size:15px;
+	
+}
+div.list>table{
+	width:600px;
+	text-align:center;
+}
+li{
+	list-style:none;
+	margin-top:30px
+}
+	
+}
+/****************/
+
+
+div.review{
+	margin-bottom:20px;
+	border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background: #dddddd;
+    width: 300px;
+    border-radius: 25px;
+}

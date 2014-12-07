@@ -1,6 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700);
 @import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+div.review{
+	margin-bottom:20px;
+	border: 2px solid #a99aa8;
+    padding: 10px 40px; 
+    background: #dddddd;
+    width: 300px;
+    border-radius: 25px;
+}
+
 /* header 부분*/
+
 div.memberbar_inner{
 font-family: 'Yanone Kaffeesatz', sans-serif;	font-size:20px;
 width:1150px; margin-right:20px;
@@ -41,7 +51,9 @@ html{
 	background-position:center center;
 	background-attachment:fixed;
 	background-size:cover;
-	font-size:10pt; font-family:�굹�닎怨좊뵓,留묒� 怨좊뵓,援대┝; color:666666;line-height:150%;
+	line-height:150%;
+	font-family: 'Jeju Myeongjo', serif;
+	
 }
 
 a{
@@ -198,6 +210,8 @@ li{
 /****************/
 
 
+<<<<<<< HEAD
+=======
 div.review{
 	margin-bottom:20px;
 	border: 2px solid #a1a1a1;
@@ -206,3 +220,26 @@ div.review{
     width: 300px;
     border-radius: 25px;
 }
+
+
+/*박스오피스*****/
+table#boxoffice{
+	margin-top:20px;
+	background-color:#FFFFFF;
+}
+
+tr#attribute{
+	font-size:18pt;
+	height:20px;
+	background-color:#EAEAEA;
+
+	
+}
+
+
+
+tr#result{
+	font-size:15px;
+	background-color:#FFFFF6;
+}
+>>>>>>> 111efe0461dc0656bd89c49f40e0d85fcea0beb1
