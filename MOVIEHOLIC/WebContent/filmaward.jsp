@@ -10,6 +10,17 @@
 	String dbUser = "kbc13";
 	String dbPassword = "a12345";
 
+	request.setCharacterEncoding("utf-8");
+	String title = request.getParameter("title");
+	String year = request.getParameter("year");
+	String award = request.getParameter("award");
+	String name = request.getParameter("name");
+	String awardname="";
+	try {
+		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+		stmt = conn.createStatement();
+		rs = stmt.executeQuery("select *from awards where title=\"busan\"");
+		
 %>
 
 <!DOCTYPE html>
@@ -23,44 +34,88 @@
 <body>
 	<div class="wrap">
 	<jsp:include page="Share/Header.jsp"/>
-	
-	<%
-		String errorMsg = null;
-
-		try {
-
-		Class.forName("com.mysql.jdbc.Driver");
-
-		// DB 접속
-		conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
-
-		stmt = conn.createStatement();
-
-		// reviews 테이블 SELECT
-		stmt = conn.createStatement();
-		rs = stmt.executeQuery("SELECT * from awards group by M_name limit "
-						+ startPos + ", " + numInPage);
-		
-	
-		%>
-		<div class="content">
-		<div id="reviewtable">
-		<table class= "review">
-			<tbody>
-				<tr>
-				<% while(rs.next()) { 
-				year=rs.getString("M_name");
+<div class="content">
+		<div class="outer">
+		<table>
+		<tr><th>
+			<div class="award">
+				<div class="award_logo">
+					<img src="./images/busanawards.jpg">
+				</div>
+				<div class="award_content">
+				<%while(rs.next()){
 				%>
-				<td><a href="reviewShow.jsp?M_name=<%=m_name%>"><img src="upload/<%=rs.getString("imagename")%>" id="movieposter"></a></td>
+				<ul>
+				<li><%=rs.getString("year") %></li>
+				<li><%=rs.getString("award") %></li>
+				<li><%=rs.getString("name") %></li>
+				</ul>
 				<% }%>
-				
-				</tr>
-			</tbody>
-		</table>
-		</div>
+				</div>
+			</div>
+			</th><th>
+			<%
+			rs = stmt.executeQuery("select *from awards where title=\"bluedragon\"");
+
+			%>
+			<div class="award">
+				<div class="award_logo">
+					<img src="./images/bluedragonawards.jpg">
+					
+				</div>			
+				<div class="award_content">
+				<%while(rs.next()){
+				%>
+				<ul>
+				<li><%=rs.getString("year") %></li>
+				<li><%=rs.getString("award") %></li>
+				<li><%=rs.getString("name") %></li>
+				</ul>
+				<% }%>
+				</div>
+			</div>
+			<div class="award">
+			</th><th>
+			<%
+			rs = stmt.executeQuery("select *from awards where title=\"daejong\"");
+
+			%>	
+				<div class="award_logo">
+					<img src="./images/daejongfileaward.jpg">
+
+				</div>
+				<div class="award_content">
+				<%while(rs.next()){
+				%>
+				<ul>
+				<li><%=rs.getString("year") %></li>
+				<li><%=rs.getString("award") %></li>
+				<li><%=rs.getString("name") %></li>
+				</ul>
+				<% }%>
+				</div>
+			</th>			
+			</tr>
+				</table>
 		
 		</div>
-		</div>
 		
+		
+		
+		</div>
+		<%
+			} catch (SQLException e) {
+				// SQL 에러의 경우 에러 메시지 출력
+				out.print("<div class='alert'>" + e.getLocalizedMessage()
+						+ "</div>");
+			} finally {
+				// 무슨 일이 있어도 리소스를 제대로 종료
+				if (rs != null) try {rs.close();} catch (SQLException e) {}
+				if (stmt != null) try {stmt.close();} catch (SQLException e) {}
+				if (conn != null) try {conn.close();} catch (SQLException e) {}
+			}
+		%>
+	</div>	
+	<jsp:include page="Share/footer.jsp" />	
 </body>
 </html>

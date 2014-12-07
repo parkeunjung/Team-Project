@@ -21,16 +21,8 @@
 	}
 	String title = request.getParameter("title");
 	String year = request.getParameter("year");
-	String award1 = request.getParameter("award1");
-	String name1 = request.getParameter("name1");
-	String award2 = request.getParameter("award2");
-	String name2 = request.getParameter("name2");
-	String award3 = request.getParameter("award3");
-	String name3 = request.getParameter("name3");
-	String award4 = request.getParameter("award4");
-	String name4 = request.getParameter("name4");
-	String award5 = request.getParameter("award5");
-	String name5 = request.getParameter("name5");
+	String award1 = request.getParameter("award");
+	String name1 = request.getParameter("name");
 	
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
@@ -41,10 +33,10 @@
 	if (year == null || year.trim().length() == 0) {
 		errorMsgs.add("년도를 반드시 입력해주세요.");
 	}
-	if (award1 == null || award1.trim().length() == 0) {
+	if (award == null || award.trim().length() == 0) {
 		errorMsgs.add("상이름을 반드시 입력해주세요.");
 	}
-	if (name1 == null || name1.trim().length() == 0) {
+	if (name == null || name.trim().length() == 0) {
 		errorMsgs.add("수상작을 반드시 입력해주세요.");
 	}
 	
@@ -54,21 +46,13 @@
 					dbPassword);
 			stmt = conn
 					.prepareStatement("UPDATE awards "
-							+ "SET  title=?, year=?, award1=?, name1=?, award2=?, name2=?, award3=?, name3=?, award4=?, name4=?, award5=?, name5=?"
+							+ "SET  title=?, year=?, award=?, name=?"
 							+ "WHERE id=?");
 			stmt.setString(1,  title);
 			stmt.setString(2,  year);
-			stmt.setString(3,  award1);
-			stmt.setString(4,  name1);
-			stmt.setString(5,  award2);
-			stmt.setString(6,  name2);
-			stmt.setString(7,  award3);
-			stmt.setString(8,  name3);
-			stmt.setString(9,  award4);
-			stmt.setString(10,  name4);
-			stmt.setString(11,  award5);
-			stmt.setString(12,  name5);
-			stmt.setInt(13, id);
+			stmt.setString(3,  award);
+			stmt.setString(4,  name);
+			stmt.setInt(5, id);
 			
 			result = stmt.executeUpdate();
 			if (result != 1) {

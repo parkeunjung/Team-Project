@@ -68,6 +68,7 @@
 					<tr>
 						<th> AWARDNAME </th>
 						<th> AWARDYEAR </th>
+						<th> AWARDNAME </th>
 						<th></th>
 						
 					</tr>
@@ -75,6 +76,7 @@
 				<tr>
 					<td><%=rs.getString("title")%></td>
 					<td><%=rs.getString("year") %></td>
+					<td><%=rs.getString("award") %></td>
 					
 					<td><a href="awardWrite.jsp?id=<%=rs.getInt("id")%>"
 						class="btn btn-xs">수정</a></td>
