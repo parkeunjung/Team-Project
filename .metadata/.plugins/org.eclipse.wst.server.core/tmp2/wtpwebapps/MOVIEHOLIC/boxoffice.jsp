@@ -100,7 +100,7 @@ request.setAttribute("codeResult", codeResult);
 		
 		<c:if test="${not empty dailyResult.boxOfficeResult.dailyBoxOfficeList}">
 		<c:forEach items="${dailyResult.boxOfficeResult.dailyBoxOfficeList }" var="boxoffice">
-			<tr>
+			<tr id="result">
 				<td><c:out value="${boxoffice.rank }"/></td>
 				<td><c:out value="${boxoffice.movieNm }"/></td>
 				<td><c:out value="${boxoffice.openDt }"/></td>
