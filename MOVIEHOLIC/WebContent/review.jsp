@@ -40,6 +40,7 @@
 		String errorMsg = null;
 
 		List<String> movielist = new ArrayList<String>();
+
 		try {
 
 		Class.forName("com.mysql.jdbc.Driver");
@@ -60,22 +61,24 @@
 
 		// reviews 테이블 SELECT
 		stmt = conn.createStatement();
-		rs = stmt.executeQuery("SELECT * FROM reviews ORDER BY image LIMIT "
+		rs = stmt.executeQuery("SELECT * from reviews group by M_name limit "
 						+ startPos + ", " + numInPage);
-	%>
+		
+	
+		
+		
+		%>
 		<div class="content">
 		<div id="reviewtable">
 		<table class=>
 			<tbody>
 				<tr>
-
 				<% while(rs.next()) { 
-					m_name=rs.getString("M_name");
+				m_name=rs.getString("M_name");
 				%>
-						<td><a href="reviewShow.jsp?M_name=<%=m_name%>"><img src="upload/<%=rs.getString("imagename")%>" id="movieposter"></a></td>
-				<%			
-				}
-				%>
+				<td><a href="reviewShow.jsp?M_name=<%=m_name%>"><img src="upload/<%=rs.getString("imagename")%>" id="movieposter"></a></td>
+				<% }%>
+				
 				</tr>
 			</tbody>
 		</table>

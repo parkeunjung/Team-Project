@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import = "java.sql.*"%>
 
@@ -16,7 +15,9 @@
 	<div class="wrap">
 	<jsp:include page="Share/Header.jsp"/>
 	<div class="content">
-		내용
+		
+		
+		
 		</div>
 	
 	</div>
