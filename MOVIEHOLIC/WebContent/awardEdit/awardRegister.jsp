@@ -84,9 +84,33 @@
 <title>영화제 등록</title>
 	<link href="../css/main.css" rel="stylesheet" type="text/css">
 	<script src="../js/jquery-1.8.2.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<div class="wrap">
+<jsp:include page="../Share/manage_Header.jsp"/>
+	<div class="content">
+	<% if (errorMsgs.size() > 0) { %>
+ 			<div class="alert alert-danger">
+ 				<h3>Errors:</h3>
+ 				<ul>
+ 					<% for(String msg: errorMsgs) { %>
+ 						<li><%=msg %></li>
+ 					<% } %>
+ 				</ul>
+ 			</div>
+		 	<div class="form-group">
+		 		<a onclick="history.back();" class="btn">뒤로 돌아가기</a>
+		 	</div>
+	 	<% } else if (result == 1) { %>
+	 		<div class="alert alert-success">
+	 			<b><%= title %></b>영화제 정보 등록완료.
+	 		</div>
+		 	<div class="form-group">
+		 		<a href="awardList.jsp" class="btn">목록으로</a>
+		 	</div>
+	 		
+	 	<%}%>
+	</div>
+</div>
 </body>
 </html>

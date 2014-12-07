@@ -50,7 +50,6 @@
 <title>영화제 삭제</title>
 	<link href="../css/main.css" rel="stylesheet" type="text/css">
 	<script src="../js/jquery-1.8.2.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="wrap">
