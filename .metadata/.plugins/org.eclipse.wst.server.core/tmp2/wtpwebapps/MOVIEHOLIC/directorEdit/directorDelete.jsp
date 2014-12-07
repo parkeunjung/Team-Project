@@ -55,16 +55,15 @@
 </head>
 <body>
 <div class="wrap">
-<jsp:include page="../Share/Header.jsp"/>
-	<div class="container">
+	<div class="content">
 	
 	<% if (errorMsg != null) { %>
-		<div class="alert alert-danger">
+		<div >
 			<h3>Errors:</h3>
 			<%= errorMsg %>
 		</div>
 		<% } else { %>
-		<div class="alert alert-success">글을 삭제하였습니다.</div>
+		<div >글을 삭제하였습니다.</div>
 		<%}%>
 		<div class="form-group">
 			<a href="directorList.jsp" class="btn btn-default">목록으로</a>

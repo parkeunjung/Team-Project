@@ -79,7 +79,11 @@
 	<div class="content">
 	
  <div>
+<<<<<<< HEAD
 		  <form accept-charset="UTF-8" class="form-horizontal" action="awardRegister.jsp" method="post" >
+=======
+		  <form accept-charset="UTF-8" class="form-horizontal" action="awardRegister.jsp" method="post" enctype="multipart/form-data">
+>>>>>>> 9573db6a4fb372138c74696b8909e75eda763cee
 				<legend class="legend">영화제 수상작 작성</legend>
 				<fieldset>
 				<div class="form-group ">

@@ -20,9 +20,6 @@
 			<a href="myinfo.jsp">MEMBERSHIP</a>
 			</div>
 			<br>
-			<div class="mypage_content">
-				<a href="mymovielist.jsp">My movie list</a>
-			</div>
 		</div>
 	</div>
 </div>

@@ -19,12 +19,13 @@
 		id = Integer.parseInt(request.getParameter("id"));
 	} catch (Exception e) {
 	}
+	
 	String name = request.getParameter("name");
 	String birth = request.getParameter("birth");
 	String debut = request.getParameter("debut");
 	String award = request.getParameter("award");
 	String famous = request.getParameter("famous");
-	String image = request.getParameter("image");
+	String imagename = request.getParameter("imagename");
 
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
@@ -44,7 +45,7 @@
 	if (famous == null || famous.trim().length() == 0) {
 		errorMsgs.add("데뷔작을 반드시 입력해주세요.");
 	}
-	if (image == null || image.trim().length() == 0) {
+	if (imagename == null || imagename.trim().length() == 0) {
 		errorMsgs.add("이미지를 반드시 입력해주세요.");
 	}
 	
@@ -54,14 +55,14 @@
 					dbPassword);
 			stmt = conn
 					.prepareStatement("UPDATE directors "
-							+ "SET  name=?, birth=?, debut=?, award=?, famous=?, image=?"
+							+ "SET  name=?, birth=?, debut=?, award=?, famous=?, imagename=?"
 							+ "WHERE id=?");
 			stmt.setString(1, name);
 			stmt.setString(2, birth);
 			stmt.setString(3, debut);
 			stmt.setString(4, award);
 			stmt.setString(5, famous);
-			stmt.setString(6, image);
+			stmt.setString(6, imagename);
 			stmt.setInt(7, id);
 			result = stmt.executeUpdate();
 			if (result != 1) {
@@ -100,12 +101,11 @@
 </head>
 <body>
 <div class="wrap">
-<jsp:include page="../Share/Header.jsp"/>
-	<div class="container">
+	<div class="content">
 		<%
 			if (errorMsgs.size() > 0) {
 		%>
-		<div class="alert alert-danger">
+		<div >
 			<h3>Errors:</h3>
 			<ul>
 				<%
@@ -124,7 +124,7 @@
 		<%
 			} else if (result == 1) {
 		%>
-		<div class="alert alert-success">
+		<div >
 			<b><%=name%></b>의 내용이 수정되었습니다.
 		</div>
 		<div class="form-group">

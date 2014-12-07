@@ -35,11 +35,13 @@
 </head>
 <body>
 <div class="wrap">
+		<jsp:include page="../Share/manage_Header.jsp" />
 	<div class="content">
 	
  <div>
 		  <form accept-charset="UTF-8" class="form-horizontal" action=<%=actionurl%> method="post" enctype="multipart/form-data">
         <legend class="legend">영화감독 작성</legend>
+        <fieldset>
 				<div class="form-group ">
 					<label class="col-sm-2 control-label" for="name">감독명</label>
 					<div class="col-sm-3">
@@ -89,6 +91,7 @@
 						<a href="directorList.jsp" class="col-sm-offset-2 btn btn-default">목록으로</a>
 
 				</div>
+				</fieldset>
 		  </form>
     </div>
 

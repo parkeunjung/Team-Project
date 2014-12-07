@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*" import="java.sql.*"
 	import="org.apache.commons.lang3.StringUtils"%>
-	
+
 <%
 	Connection conn = null;
 	PreparedStatement stmt = null;
@@ -95,11 +95,12 @@
 <head>
 <meta charset="UTF-8">
 <title>영화감독 수정</title>
-	<link href="../css/main.css" rel="stylesheet" type="text/css">
-	<script src="../js/jquery-1.8.2.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+<link href="../css/main.css" rel="stylesheet" type="text/css">
+<script src="../js/jquery-1.8.2.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 </head>
 <body>
+<<<<<<< HEAD
 <div class="wrap">
 	<div class="content">
 		<%
@@ -109,21 +110,34 @@
 			<h3>Errors:</h3>
 			<ul>
 				<%
+=======
+	<div class="wrap">
+		<jsp:include page="../Share/manage_Header.jsp" />
+		<div class="container">
+			<%
+			if (errorMsgs.size() > 0) {
+		%>
+			<div class="alert alert-danger">
+				<h3>Errors:</h3>
+				<ul>
+					<%
+>>>>>>> 9573db6a4fb372138c74696b8909e75eda763cee
 					for (String msg : errorMsgs) {
 				%>
-				<li><%=msg%></li>
-				<%
+					<li><%=msg%></li>
+					<%
 					}
 				%>
-			</ul>
-		</div>
-		
-				<div class="form-group">
-			<a onclick="history.back();" class="btn btn-default">뒤로 돌아가기</a>
-		</div>
-		<%
+				</ul>
+			</div>
+
+			<div class="form-group">
+				<a onclick="history.back();" class="btn btn-default">뒤로 돌아가기</a>
+			</div>
+			<%
 			} else if (result == 1) {
 		%>
+<<<<<<< HEAD
 		<div >
 			<b><%=name%></b>의 내용이 수정되었습니다.
 		</div>
@@ -131,11 +145,20 @@
 			<a href="directorList.jsp" class="btn btn-default">목록으로</a>
 		</div>
 		<%
+=======
+			<div class="alert alert-success">
+				<b><%=name%></b>의 내용이 수정되었습니다.
+			</div>
+			<div class="form-group">
+				<a href="directorList.jsp" class="btn btn-default">목록으로</a>
+			</div>
+			<%
+>>>>>>> 9573db6a4fb372138c74696b8909e75eda763cee
 			}
 		%>
-	
+
+		</div>
 	</div>
-</div>
-<jsp:include page="../Share/footer.jsp"/>
+	<jsp:include page="../Share/footer.jsp" />
 </body>
 </html>

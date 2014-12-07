@@ -8,6 +8,10 @@ div.review{
     width: 300px;
     border-radius: 25px;
 }
+img.indeximage{
+	width:180px;
+	height:160px;
+}
 
 /* header 부분*/
 
@@ -61,10 +65,11 @@ a{
 	text-decoration:none;
 }
 div.content{
+	width:800px;
 	float:left;
 	height:338px;
 	margin-top:80px;
-	margin-left:70px;
+	margin-left:40px;
 	font-family: 'Jeju Myeongjo', serif;
 	
 }
@@ -209,4 +214,46 @@ li{
 }
 /****************/
 
+/*영화제수상작****/
 
+table#filmaward{
+	text-align:center;
+}
+div.award_content{
+	text-align:center;
+}
+
+
+<<<<<<< HEAD
+=======
+div.review{
+	margin-bottom:20px;
+	border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background: #dddddd;
+    width: 300px;
+    border-radius: 25px;
+}
+
+
+/*박스오피스*****/
+table#boxoffice{
+	margin-top:20px;
+	background-color:#FFFFFF;
+}
+
+tr#attribute{
+	font-size:18pt;
+	height:20px;
+	background-color:#EAEAEA;
+
+	
+}
+
+
+
+tr#result{
+	font-size:15px;
+	background-color:#FFFFF6;
+}
+>>>>>>> 111efe0461dc0656bd89c49f40e0d85fcea0beb1

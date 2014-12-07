@@ -5,6 +5,7 @@ GRANT ALL ON movieholic.* TO 'kbc13'@'localhost' IDENTIFIED BY 'a12345';
 use movieholic;
 
 CREATE TABLE awards (
+<<<<<<< HEAD
 	id INT AUTO_INCREMENT PRIMARY KEY, 
 	title VARCHAR(255) NOT NULL,
 	year VARCHAR(255) NOT NULL,
@@ -12,3 +13,12 @@ CREATE TABLE awards (
 	name VARCHAR(255) NOT NULL
 
 );
+=======
+   id INT AUTO_INCREMENT PRIMARY KEY, 
+   title VARCHAR(255) NOT NULL,
+   year VARCHAR(255) NOT NULL,
+   award VARCHAR(255) NOT NULL,
+   name VARCHAR(255) NOT NULL
+
+);
+>>>>>>> 9573db6a4fb372138c74696b8909e75eda763cee

@@ -78,7 +78,7 @@
 					<td><%=rs.getString("name")%></td>
 					
 					
-					<td><a href="directorwWrite.jsp?id=<%=rs.getInt("id")%>"
+					<td><a href="directorWrite.jsp?id=<%=rs.getInt("id")%>"
 						class="btn btn-xs">수정</a></td>
 					<td> <a href="#"
 						class="btn btn-xs btn-danger" data-action="delete"

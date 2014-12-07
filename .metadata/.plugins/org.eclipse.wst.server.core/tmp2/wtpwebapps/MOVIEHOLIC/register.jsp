@@ -82,7 +82,7 @@
 <div class="wrap">
 <jsp:include page="Share/Header.jsp"/>
 
- 	<div class="container">
+ 	<div class="content">
  		<% if (errorMsgs.size() > 0) { %>
  			<div class="alert alert-danger">
  				<h3>Errors:</h3>
@@ -94,7 +94,7 @@
  			</div>
 		 	
 	 	<% } else if (result == 1) { %>
-	 		<div class="alert-success">
+	 		<div >
 	 			<b><%= name %></b>님 등록해주셔서 감사합니다.
 	 		
 		 	<div class="form-group">
@@ -103,7 +103,8 @@
 	 		</div>
 	 	<%}%>
  	</div>
-	<jsp:include page="Share/footer.jsp" />
 </div>
+	<jsp:include page="Share/footer.jsp" />
+
 </body>
 </html>

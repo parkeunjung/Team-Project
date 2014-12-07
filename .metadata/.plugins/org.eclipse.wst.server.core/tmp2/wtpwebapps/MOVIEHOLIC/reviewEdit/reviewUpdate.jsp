@@ -22,7 +22,7 @@
 	String M_name = request.getParameter("M_name");
 	String C_name = request.getParameter("C_name");
 	String content = request.getParameter("content");
-	String image = request.getParameter("image");
+	String image = request.getParameter("imagename");
 
 	List<String> errorMsgs = new ArrayList<String>();
 	int result = 0;
@@ -36,8 +36,8 @@
 	if (content == null || content.trim().length() == 0) {
 		errorMsgs.add("내용을 반드시 입력해주세요.");
 	}
-	if (image == null || image.trim().length() == 0) {
-		errorMsgs.add("이미지 이름을 반드시 입력해주세요.");
+	if (imagename == null || image.trim().length() == 0) {
+		errorMsgs.add("이미지를 반드시 등록해주세요.");
 	}
 
 	if (errorMsgs.size() == 0) {
@@ -46,7 +46,7 @@
 					dbPassword);
 			stmt = conn
 					.prepareStatement("UPDATE reviews "
-							+ "SET  M_name=?, C_name=?, content=?, image=? "
+							+ "SET  M_name=?, C_name=?, content=?, imagename=? "
 							+ "WHERE id=?");
 			stmt.setString(1, M_name);
 			stmt.setString(2, C_name);
@@ -90,7 +90,7 @@
 </head>
 <body>
 <div class="wrap">
-	<div class="container">
+	<div class="content">
 		<%
 			if (errorMsgs.size() > 0) {
 		%>
@@ -113,7 +113,7 @@
 			} else if (result == 1) {
 		%>
 		<div class="alert alert-success">
-			<b><%=M_name%></b>의 내용이 수정되었습니다.
+			<b><%=M_name%></b>영화 평론가평이 수정되었습니다.
 		</div>
 		<div class="form-group">
 			<a href="reviewWrite.jsp" class="btn btn-default">목록으로</a>
