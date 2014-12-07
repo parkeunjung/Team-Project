@@ -206,3 +206,25 @@ div.review{
     width: 300px;
     border-radius: 25px;
 }
+
+
+/*박스오피스*****/
+table#boxoffice{
+	margin-top:20px;
+	background-color:#FFFFFF;
+}
+
+tr#attribute{
+	font-size:18pt;
+	height:20px;
+	background-color:#EAEAEA;
+
+	
+}
+
+
+
+tr#result{
+	font-size:15px;
+	background-color:#FFFFF6;
+}
