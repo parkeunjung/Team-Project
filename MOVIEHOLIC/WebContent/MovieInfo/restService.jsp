@@ -60,8 +60,8 @@
 
 		</tr>
 		
-	<c:if test="${not empty movieInfoResultList}">
-	<c:forEach items="${movieInfoResultList}" var="movieinfo">
+	<c:if test="${not empty movieInfoResult}">
+	<c:forEach items="${movieInfoResult}" var="movieinfo">
 		<tr>
 			<td><c:out value="${movieinfo.movieNm }"/></td>
 			<td><c:out value="${movieinfo.prdtYear }"/></td>
